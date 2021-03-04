@@ -1,13 +1,10 @@
-$ git config --global user.name "EasyCoreSolutions"
-$ git config --global user.email "easy@coresolutions.co.kr"
-
 # jekyll
 .jekyll-metadata
 _site
 .sass-cache
 .jekyll-cache
 
-
+수정
 # bundler
 *.gem
 Gemfile.lock
