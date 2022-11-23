@@ -24,4 +24,4 @@
 <tr><td align=center>18.</td><td>탭제거</td><td>현재 탭을 제거합니다.</td></tr>
 <tr><td align=center>19.</td><td>테이블/필드</td><td>연결되어 있는 데이터베이스의 테이블과 칼럼들의 값을 볼 수 있는 테이블-필드정보 창을 실행합니다.</td></tr>
 <tr><td align=center>20.</td><td>전체실행</td><td>모든 탭들을 순서대로 실행합니다.</td></tr>
-</tabkle>
+</table>
