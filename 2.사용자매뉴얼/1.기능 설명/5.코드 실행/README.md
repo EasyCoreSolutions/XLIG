@@ -1,7 +1,7 @@
 
 # 코드실행
 
-<img src="/assets/images/코드입력.png">
+![코드입력](https://user-images.githubusercontent.com/57983744/203501033-507f6739-99d2-413e-b9dc-87e59e049cd7.png)
 
 <table>
 <tr><td align=center>1.</td><td>신규</td><td>새로운 프로젝트를 실행합니다.</td></tr>
