@@ -1,6 +1,6 @@
 
 # 코드실행
-<div text-align : center>
+<div align= center>
 <img src="https://user-images.githubusercontent.com/57983744/203501033-507f6739-99d2-413e-b9dc-87e59e049cd7.png" >
 </div>
 <table>
