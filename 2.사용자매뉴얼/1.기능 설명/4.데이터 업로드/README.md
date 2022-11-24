@@ -1,11 +1,9 @@
----
-sort : 1 
----
-
 
 # 데이터 업로드
 
 XLIG에서 작업한 데이터 테이블을 R 데이터 프레임으로 변환해 업로드하며, csv파일 형태로 바꾸어 외부 경로에도 저장합니다.
+
+---
 
 <img src = "https://user-images.githubusercontent.com/86198387/203702675-9be3070f-7bcb-4a2c-b1a9-8934a00e92f0.png" />
 
