@@ -13,7 +13,7 @@
 <tr><td align=center>7.</td><td>프로젝트ID</td><td>프로젝트의 고유ID입니다. 자동생성 됩니다.</td></tr>
 <tr><td align=center>8.</td><td>탭</td><td>하나의 프로젝트에서 여러개의 작업공간을 생성하고 탭으로 구분하여 사용할 수 있습니다.</td></tr>
 <tr><td align=center>9.</td><td>접속정보</td><td>접속할 데이터베이스나 프로그래밍 언어를 선택합니다.</td></tr>
-<tr><td align=center>10.</td><td>결과유형</td><td>결과의 출력 형태를 지정합니다. 리스트, 피벗테이블, R데이터프레임, PANDAS 데이터프레임 등의 형태가 있습니다. <a href="/1.결과유형/">자세히보기</a></td></tr>
+<tr><td align=center>10.</td><td>결과유형</td><td>결과의 출력 형태를 지정합니다. 리스트, 피벗테이블, R데이터프레임, PANDAS 데이터프레임 등의 형태가 있습니다. <a href="1.결과유형/">자세히보기</a></td></tr>
 <tr><td align=center>11.</td><td>결과시트</td><td>결과를 출력할 시트를 지정합니다. 새로운 시트이름을 입력한다면 해당 이름으로 새로운 시트가 생성됩니다.</td></tr>
 <tr><td align=center>12.</td><td>셀위치</td><td>결과를 출력할 셀 위치를 지정합니다.</td></tr>
 <tr><td align=center>13.</td><td>작업공간</td><td>쿼리 또는 코드를 입력하는 실질적인 작업 공간입니다.</td></tr>
