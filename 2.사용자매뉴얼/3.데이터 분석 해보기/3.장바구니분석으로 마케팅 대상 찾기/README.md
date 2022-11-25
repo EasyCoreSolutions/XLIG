@@ -15,18 +15,18 @@
 히트맵 데이터를 pivotmaster 시트에 가져옵니다.
 <h5>(2) R데이터프레임 만들기</h5>
 
-<img src="https://user-images.githubusercontent.com/57983744/203899615-f044dc69-362a-49da-aab7-6a0c25f6222d.png">
-장바구니 분석을 하기 위해 필요한 데이터셋을 만들기 위한 쿼리를 입력하고 rdf1 이름으로 데이터프레임을 만들겠습니다.
+<img src="https://user-images.githubusercontent.com/57983744/203899615-f044dc69-362a-49da-aab7-6a0c25f6222d.png"><br>
+장바구니 분석을 하기 위해 필요한 데이터셋을 만들기 위한 쿼리를 입력하고 rdf1 이름으로 데이터프레임을 만들겠습니다.<br>
 <br>
 <h3>2) 장바구니 분석하기</h3>
-<img src="https://user-images.githubusercontent.com/57983744/203901007-af4e6d0c-4f02-414c-8e36-ab85406c4009.png">
+<img src="https://user-images.githubusercontent.com/57983744/203901007-af4e6d0c-4f02-414c-8e36-ab85406c4009.png"><br>
 rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf1시트에 출력합니다.
 데이터셋을 logical형태로 변환하고 apriori 라이브러리를 이용해 지지도가 0.1, 신뢰도가 0.6 이상인 항목들을 향상도 순으로 출력하는 R코드를 입력하였습니다.
-<br>
+<br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203901118-21eed28b-d401-4bfc-9c29-90c160d1273f.png">
 <br>
 코드의 결과가 rdf1시트에 표시됩니다.
-<br>
+<br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203902177-a23d4365-9ac6-4450-a2b1-42215fb5ab6e.png">
 <br>
 해당 값을 엑셀 함수를 활용하여 필요한 데이터를 추출해줍니다.
@@ -34,19 +34,20 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <br>
 <img src="https://user-images.githubusercontent.com/57983744/203902387-5dcf9efb-7d8b-4ead-89d9-276c148f493c.png">
 <br>
-앞에서 pivotmaster 시트에 구해놓은 히트맵 데이터와 장바구니 분석 결과를 활용하여 연관분석 대시보드를 구성합니다.<br>
-좌측 상단에는 많이 팔린 10개의 품목을 순서대로 보여주는 표, 우측 상단에는 한 고객이 함께 구매한 옷의 종류에 대한 히트맵, 하단에는 장바구니분석의 결과인 지지도, 신뢰도, 향상도를 표시하였습니다.
-<br>
+앞에서 pivotmaster 시트에 구해놓은 히트맵 데이터와 장바구니 분석 결과를 활용하여 연관분석 대시보드(Dashboard2)를 구성합니다.<br>
+좌측 상단에는 많이 팔린 10개의 품목을 순서대로 보여주는 표, 우측 상단에는 한 고객이 함께 구매한 옷의 종류에 대한 히트맵, <br>하단에는 장바구니분석의 결과인 지지도, 신뢰도, 향상도 및 그에 따른 추천 마케팅을 표시하였습니다.
+<br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203902546-e138bb59-2a1a-4a69-a1fe-e81b29630553.png">
 <br>
 장바구니 분석 또한 사용자가 원하는 기준으로 할 수 있게끔 변수를 입력할 수 있는 곳이 필요합니다.<br>대시보드 좌측에 기준이 되는 지지도와 신뢰도를 입력할 수 있는 곳을 만들어주겠습니다. 
-<br>
+<br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203910470-27657c68-5f8e-482c-a810-cdbfe3ae0e37.png">
 <br>
-해당 입력값을 반영할 수 있도록 R코드를 수정합니다.
+해당 입력값을 반영할 수 있도록 R코드를 수정합니다.<br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203902615-f900dedc-6060-4051-b8da-4d9226e2fcff.png">
 <br>
 기준 지지도를 0.1에서 0.08로 조금 낮춰 5개의 항목이 나타나게 대시보드가 변경되었습니다.
+<br>
 <img src="https://user-images.githubusercontent.com/57983744/203902734-f9c2cb35-3209-4acc-b3fa-63d43c619fcd.png">
 <br>
 이전의 대시보드로 이동할 수 있는 화살표 버튼을 만들고 모든 프로젝트를 실행 할 수 있는 버튼을 만들어 매출대시보드와 연관분석 대시보드를 완성하였습니다.
