@@ -31,7 +31,7 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203902177-a23d4365-9ac6-4450-a2b1-42215fb5ab6e.png">
 <br>
-해당 값을 엑셀 함수를 활용하여 필요한 데이터를 추출해줍니다.
+해당 값을 엑셀 함수를 활용하여 필요한 데이터(좌측변수, 우측변수, 지지도, 신뢰도, 향상도)를 추출해줍니다.
 <h3>3) 대시보드 구성하기</h3>
 <br>
 <img src="https://user-images.githubusercontent.com/57983744/203902387-5dcf9efb-7d8b-4ead-89d9-276c148f493c.png">
@@ -49,7 +49,7 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <img src="https://user-images.githubusercontent.com/57983744/203902615-f900dedc-6060-4051-b8da-4d9226e2fcff.png">
 <br>
 기준 지지도를 0.1에서 0.08로 조금 낮춰 5개의 항목이 나타나게 대시보드가 변경되었습니다.
-<br>
+<br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203902734-f9c2cb35-3209-4acc-b3fa-63d43c619fcd.png">
 <br>
 이전의 대시보드로 이동할 수 있는 화살표 버튼을 만들고 모든 프로젝트를 실행 할 수 있는 버튼을 만들어 매출대시보드와 연관분석 대시보드를 완성하였습니다.
