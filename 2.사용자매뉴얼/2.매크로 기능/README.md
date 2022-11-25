@@ -5,6 +5,8 @@ XLIG는 SQL이 제공하는 기능과 엑셀 기능을 한번에 사용해 데�
 
 이 문서에서는  몇가지 매크로와 사용 방법을 설명합니다.
 
-SHOW_POPUP (LINK)
-SELECT_RADIO (LINK)
-SHOW_R (LINK)
+{% include list.liquid all=true %}
+<a href="/XLIG/2.사용자매뉴얼/2.매크로 기능/1.SHOW_POPUP/">SHOW_POPUP</a>
+<a href="/XLIG/2.사용자매뉴얼/2.매크로 기능/2.SELECT_RADIO/">SELECT_RADIO</a>
+<a href="/XLIG/2.사용자매뉴얼/2.매크로 기능/3.SHOW_R/">SHOW_R</a>
+<a href="/XLIG/2.사용자매뉴얼/2.매크로 기능/4.매크로 활용/">매크로 활용</a>
