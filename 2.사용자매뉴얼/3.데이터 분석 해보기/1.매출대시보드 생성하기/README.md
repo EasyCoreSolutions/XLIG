@@ -52,6 +52,5 @@ GRADE버튼을 클릭하여 휴면등급을 선택에서 제외하고 프로젝�
 <div align=center>
 <img src="https://user-images.githubusercontent.com/57983744/203720848-bc503f5b-fb42-4844-80fc-b3db5325957e.png"></div>
 대시보드도 휴면상태의 고객이 제외된 대시보드로 변경된 것을 볼 수 있습니다.
-<br><br><br><br><br>
-
+<br><br><br>
 <a href="/XLIG/2.사용자매뉴얼/3.데이터 분석 해보기/2.대시보드 살펴보기/">(다음) 대시보드 살펴보기</a>
