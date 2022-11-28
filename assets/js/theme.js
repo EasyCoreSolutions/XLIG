@@ -226,10 +226,9 @@ $(document).on("scroll", function () {
             initialize("#" + items[i].id);
           }
         }
-      } 
-      //else {
-       // initialize("#" + items[i].id);
-      //}
+      } else {
+         initialize("#" + items[i].id);
+      }
     }
   }
 });
