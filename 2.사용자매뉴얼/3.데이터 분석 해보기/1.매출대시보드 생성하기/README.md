@@ -16,7 +16,7 @@
 차트만들기에 좋은 피벗테이블로 결과유형을 선택하고 피벗테이블을 모두 모아놓을 시트 'pivotmaster'에 데이터를 불러오겠습니다.
 <h5>(2) 데이터 선택</h5>
 <div align=center>
-<img src="https://user-images.githubusercontent.com/57983744/203698135-e52ab48c-5d34-4b7c-a531-98f36c6f0026.png"></div>
+<img src="https://user-images.githubusercontent.com/57983744/204177314-05828462-d45a-4f67-9f34-2c6e2db9e6fe.png"></div>
 &nbsp;대시보드에 생성할 차트의 수만큼 피벗테이블을 복사한뒤 각 피벗테이블들을 만들어질 차트에 알맞은 데이터를 선택해줍니다.
 <h3>2) 차트 만들기</h3>
 <h5>(1) 차트 삽입하기</h5>
@@ -46,7 +46,8 @@ range에는 commcode 시트에 불러왔던 데이터의 범위를 지정하여�
 <h5>(3) 쿼리 수정</h5>
 <div align=center>
 <img src="https://user-images.githubusercontent.com/57983744/203715797-f5ae1017-8943-4ba9-bbbd-44a931e9aec5.png"></div>
-&nbsp;데이터를 불러오는 쿼리의 WHERE 절에 targetcell의 값들을 불러오는 값들을 입력해주면 버튼을 통해 선택하는 값에 따라 변경되는 쿼리가 완성됩니다.<br><br>
+&nbsp;데이터를 불러오는 쿼리의 WHERE 절에 targetcell의 값들을 불러오는 값들을 입력해주면 버튼을 통해 선택하는 값에 따라 변경되는 쿼리가 완성됩니다.<br>
+<a href="/XLIG/2.사용자매뉴얼/2.매크로 기능/4.매크로 활용/">코드에 적용하기</a><br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203720623-8734d125-ff07-4541-b5f9-3ecea08d6f1a.png"><br>
 GRADE버튼을 클릭하여 휴면등급을 선택에서 제외하고 프로젝트를 실행한다면<br><br>
 <div align=center>
