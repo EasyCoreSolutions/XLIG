@@ -15,6 +15,7 @@ SHOW_POPUP 매크로는 SQL로 생성한 데이터에서 여러 값을 선택해
 <img src = "https://user-images.githubusercontent.com/86198387/203720562-7cf0703a-ca6b-472e-b3c9-578b61c68562.png" />
 
 - [x] 명령어 목록을 참조해 매크로를 작성합니다.
+
 ```
 # 명령어 목록
 
