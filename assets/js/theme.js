@@ -86,12 +86,12 @@ function initialize(name) {
   let link = $(".toctree").find(`[href="${decodeURI(name)}"]`);
 
   if (link.length > 0) {
-    $(".toctree .current").removeClass("current");
-    link.addClass("current");
-    link.closest(".level-1").parent().addClass("current");
-    for (let i = 1; i <= 11; i++) {
-      link.closest(`.level-${i}`).addClass("current");
-    }
+    // $(".toctree .current").removeClass("current");
+    // link.addClass("current");
+    // link.closest(".level-1").parent().addClass("current");
+    // for (let i = 1; i <= 11; i++) {
+    //   link.closest(`.level-${i}`).addClass("current");
+    // }
   }
 }
 
