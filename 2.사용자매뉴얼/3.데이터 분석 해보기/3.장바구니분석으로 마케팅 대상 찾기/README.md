@@ -12,8 +12,9 @@
 <h5>(1) 히트맵 데이터 가져오기</h5>
 많이 팔린 10개의 옷의 종류는 기존의 데이터에서 구할 수 있기때문에 히트맵에 필요한 쿼리만 새로 작성하여 pivotmaster시트에 가져오도록 하겠습니다.
 <img src="https://user-images.githubusercontent.com/57983744/203888283-5bb30db7-1042-44dc-9cfd-3a8d19a29ee8.png">
+<br>
 새로운 탭에 히트맵 데이터를 가져오기 위한 쿼리를 작성하고 
-<img src="https://user-images.githubusercontent.com/57983744/203888421-350e8b00-bffa-4ce5-a255-c8abd8e64ecb.png">
+<img src="https://user-images.githubusercontent.com/57983744/204177658-85042eee-1240-4d7e-ba58-2652b894a06d.png">
 히트맵 데이터를 pivotmaster 시트에 가져옵니다.
 <h5>(2) R데이터프레임 만들기</h5>
 
@@ -32,7 +33,10 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <img src="https://user-images.githubusercontent.com/57983744/203902177-a23d4365-9ac6-4450-a2b1-42215fb5ab6e.png">
 <br>
 해당 값을 엑셀 함수를 활용하여 필요한 데이터(좌측변수, 우측변수, 지지도, 신뢰도, 향상도)를 추출해줍니다.
+<br><br>
 <h3>3) 대시보드 구성하기</h3>
+<br>
+<img src="https://user-images.githubusercontent.com/57983744/204194602-197f0c54-cfd1-43d9-b02f-2913e12b5a33.png">
 <br>
 <img src="https://user-images.githubusercontent.com/57983744/203902387-5dcf9efb-7d8b-4ead-89d9-276c148f493c.png">
 <br>
@@ -41,7 +45,7 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203902546-e138bb59-2a1a-4a69-a1fe-e81b29630553.png">
 <br>
-장바구니 분석 또한 사용자가 원하는 기준으로 할 수 있게끔 변수를 입력할 수 있는 곳이 필요합니다.<br>대시보드 좌측에 기준이 되는 지지도와 신뢰도를 입력할 수 있는 곳을 만들어주겠습니다. 
+장바구니 분석 또한 사용자가 원하는 기준으로 분석 할 수 있게끔 변수를 입력할 수 있는 곳이 필요합니다.<br>대시보드 좌측에 기준이 되는 지지도와 신뢰도를 입력할 수 있는 곳을 만들어주겠습니다. 
 <br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203910470-27657c68-5f8e-482c-a810-cdbfe3ae0e37.png">
 <br>
