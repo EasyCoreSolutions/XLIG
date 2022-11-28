@@ -8,6 +8,7 @@
 SSBI XLIG의 주요 기능들을 소개하는 페이지입니다. 각 탭은 기능의 사용법을 설명합니다.
 
 <br>
+<table>
 
 <tr><td>접속</td><td>XLIG를 사용하기 위해 로그인 창을 팝업시킵니다.</td><tr>
 <tr><td>정보</td><td>현재 XLIG 버전의 주요 업데이트와 변경 사항, 실행 옵션, DB 접속 설정정보가 포함된 옵션창을 팝업시킵니다.</td></tr>
@@ -23,6 +24,7 @@ SSBI XLIG의 주요 기능들을 소개하는 페이지입니다. 각 탭은 기
 <tr><td>ML-Blocks</td><td>SSBI ML Block 페이지로 연결됩니다.</td></tr>
 <tr><td>레포트 포탈</td><td>SSBI Portal 웹페이지로 연결됩니다.</td></tr>
 <tr><td>타케팅 분석</td><td>엔터프라이즈 버전에서 제공될 예정인 기능.</td></tr>
+
 </table>
 <br>
 
