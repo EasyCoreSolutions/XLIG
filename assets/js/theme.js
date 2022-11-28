@@ -253,19 +253,19 @@ restore();
 highlight();
 
 /* nested ul */
-$(".toc ul")
-  .siblings("a")
-  .each(function () {
-    let link = $(this);
-    let expand = $('<i class="fa fa-plus-square-o"></i>');
+// $(".toc ul")
+//   .siblings("a")
+//   .each(function () {
+//     let link = $(this);
+//     let expand = $('<i class="fa fa-plus-square-o"></i>');
 
-    expand.on("click", function (e) {
-      e.stopPropagation();
-      //toggleCurrent(link);
-      return false;
-    });
-    link.prepend(expand);
-  });
+//     expand.on("click", function (e) {
+//       e.stopPropagation();
+//       toggleCurrent(link);
+//       return false;
+//     });
+//     link.prepend(expand);
+//   });
 
 $(".markdown-body :header").append(function () {
   return `<a href="#${this.id}" class="anchor"><i class="octicon-link fa fa-link text-blue"></i></a>`;
