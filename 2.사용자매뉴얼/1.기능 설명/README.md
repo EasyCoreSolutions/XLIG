@@ -5,8 +5,6 @@
 
 <img src = "https://user-images.githubusercontent.com/86198387/204177206-18586a0b-65de-47ad-a951-e87b9fedd745.png"/>
 
-<br>
-<br>
 
 <table width = "100%">
 <tr><td>접속</td><td>XLIG를 사용하기 위해 로그인 창을 팝업시킵니다.</td><tr>
