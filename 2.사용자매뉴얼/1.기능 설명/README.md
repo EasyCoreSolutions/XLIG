@@ -22,7 +22,4 @@
 <tr><td>ML-Blocks</td><td>SSBI ML Block 페이지로 연결됩니다.</td></tr>
 <tr><td>레포트 포탈</td><td>SSBI Portal 웹페이지로 연결됩니다.</td></tr>
 <tr><td>타케팅 분석</td><td>엔터프라이즈 버전에서 제공될 예정인 기능.</td></tr>
-
 </table>
-
-{% include list.liquid all=true %}
