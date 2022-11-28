@@ -247,8 +247,8 @@ if (location.pathname == `${ui.baseurl}/search.html`) {
 }
 
 toc();
-initialize(location.pathname);
-initialize(location.hash);
+//initialize(location.pathname);
+//initialize(location.hash);
 restore();
 highlight();
 
