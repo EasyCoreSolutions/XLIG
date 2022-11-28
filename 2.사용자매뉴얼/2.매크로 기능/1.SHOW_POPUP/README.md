@@ -17,6 +17,7 @@ SHOW_POPUP 매크로는 SQL로 생성한 데이터에서 여러 값을 선택해
 - [x] 명령어 목록을 참조해 매크로를 작성합니다.
 
 ```
+
 # 명령어 목록
 
 label = {Title} : 팝업 창의 타이틀을 설정합니다.
@@ -29,10 +30,11 @@ multiple = TRUE / FALSE : 다중 선택을 허가할지 여부를 설정합니�
 구분됩니다.
 
 quote = TRUE / FALSE : SQL에서 동적으로 활용하기 위해 선택값에 싱글 쿼테이션 마크를 표시할지 여부를 표시합니다.
+
 ```
 
 대체 텍스트를 작성 완료하면 아래 예시와 같이 이제 매크로를 사용할 수 있습니다.
 
-<img src = "https://user-images.githubusercontent.com/86198387/203721779-8f593ca5-b7cc-4d3c-aa7c-5c7f02d95b02.png" />
+<img src = "https://user-images.githubusercontent.com/86198387/204197346-2555e806-85aa-4e25-ae1f-552d64848a48.png" />
 
 - [x] 생성한 도형을 클릭하면 매크로 창이 팝업되며, 값을 선택해 엑셀에 동적으로 값이 나타나게 표시할 수 있습니다.
