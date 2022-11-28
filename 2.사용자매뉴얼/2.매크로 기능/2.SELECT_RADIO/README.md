@@ -27,7 +27,7 @@ targetcell = {cell addr} : 결과값이 표시될 셀을 설정합니다.
 
 대체 텍스트를 작성 완료하면 아래 예시와 같이 이제 매크로를 사용할 수 있습니다.
 
-<img src = "https://user-images.githubusercontent.com/86198387/203724020-032bd264-ff62-47a6-8c5f-e9b32512910d.png"/>
+<img src = "https://user-images.githubusercontent.com/86198387/204197603-1df66dd4-cfa4-4eb9-8bd6-6ac16c9d6ce1.png"/>
 
 - [x] 라디오 버튼을 선택하면 매크로에 입력한 값이 셀에 표시됩니다.
 
