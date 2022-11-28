@@ -36,6 +36,8 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <br><br>
 <h3>3) 대시보드 구성하기</h3>
 <br>
+<img src="https://user-images.githubusercontent.com/57983744/204194602-197f0c54-cfd1-43d9-b02f-2913e12b5a33.png">
+<br>
 <img src="https://user-images.githubusercontent.com/57983744/203902387-5dcf9efb-7d8b-4ead-89d9-276c148f493c.png">
 <br>
 앞에서 pivotmaster 시트에 구해놓은 히트맵 데이터와 장바구니 분석 결과를 활용하여 연관분석 대시보드(Dashboard2)를 구성합니다.<br>
