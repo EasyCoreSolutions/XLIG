@@ -97,10 +97,10 @@ function initialize(name) {
 
 function toggleCurrent(link) {
   let closest = link.closest("li");
-  closest.siblings("li.current").removeClass("current");
-  closest.siblings().find("li.current").removeClass("current");
-  closest.find("> ul li.current").removeClass("current");
-  closest.toggleClass("current");
+  // closest.siblings("li.current").removeClass("current");
+  // closest.siblings().find("li.current").removeClass("current");
+  // closest.find("> ul li.current").removeClass("current");
+  // closest.toggleClass("current");
 }
 
 function toc() {
