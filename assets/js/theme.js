@@ -261,7 +261,7 @@ $(".toc ul")
 
     expand.on("click", function (e) {
       e.stopPropagation();
-      toggleCurrent(link);
+      //toggleCurrent(link);
       return false;
     });
     link.prepend(expand);
