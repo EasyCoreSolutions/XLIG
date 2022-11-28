@@ -3,7 +3,7 @@
 <div align= center>
 <img src="https://user-images.githubusercontent.com/57983744/203702092-978005cb-969c-4d17-8e1d-65d1cfc22200.png" >
 </div>
-<table>
+<table border=0>
 <tr><td align=center>1.</td><td>신규</td><td>새로운 프로젝트를 실행합니다.</td></tr>
 <tr><td align=center>2.</td><td>제거</td><td>현재 프로젝트를 삭제합니다.</td></tr>
 <tr><td align=center>3.</td><td>저장</td><td>현재 프로젝트를 저장합니다.</td></tr>
