@@ -86,12 +86,12 @@ function initialize(name) {
   let link = $(".toctree").find(`[href="${decodeURI(name)}"]`);
 
   if (link.length > 0) {
-    // $(".toctree .current").removeClass("current");
-    // link.addClass("current");
-    // link.closest(".level-1").parent().addClass("current");
-    // for (let i = 1; i <= 11; i++) {
-    //   link.closest(`.level-${i}`).addClass("current");
-    // }
+    $(".toctree .current").removeClass("current");
+    link.addClass("current");
+    link.closest(".level-1").parent().addClass("current");
+    for (let i = 1; i <= 11; i++) {
+      link.closest(`.level-${i}`).addClass("current");
+    }
   }
 }
 
@@ -227,7 +227,7 @@ $(document).on("scroll", function () {
           }
         }
       } else {
-         initialize("#" + items[i].id);
+        initialize("#" + items[i].id);
       }
     }
   }
@@ -247,25 +247,25 @@ if (location.pathname == `${ui.baseurl}/search.html`) {
 }
 
 toc();
-//initialize(location.pathname);
-//initialize(location.hash);
+initialize(location.pathname);
+initialize(location.hash);
 restore();
 highlight();
 
 /* nested ul */
-// $(".toc ul")
-//   .siblings("a")
-//   .each(function () {
-//     let link = $(this);
-//     let expand = $('<i class="fa fa-plus-square-o"></i>');
+$(".toc ul")
+  .siblings("a")
+  .each(function () {
+    let link = $(this);
+    let expand = $('<i class="fa fa-plus-square-o"></i>');
 
-//     expand.on("click", function (e) {
-//       e.stopPropagation();
-//       toggleCurrent(link);
-//       return false;
-//     });
-//     link.prepend(expand);
-//   });
+    expand.on("click", function (e) {
+      e.stopPropagation();
+      toggleCurrent(link);
+      return false;
+    });
+    link.prepend(expand);
+  });
 
 $(".markdown-body :header").append(function () {
   return `<a href="#${this.id}" class="anchor"><i class="octicon-link fa fa-link text-blue"></i></a>`;
