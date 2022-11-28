@@ -96,7 +96,7 @@ function initialize(name) {
 }
 
 function toggleCurrent(link) {
-  let closest = link.closest("li");
+ // let closest = link.closest("li");
   closest.siblings("li.current").removeClass("current");
   closest.siblings().find("li.current").removeClass("current");
   closest.find("> ul li.current").removeClass("current");
@@ -226,9 +226,10 @@ $(document).on("scroll", function () {
             initialize("#" + items[i].id);
           }
         }
-      } else {
-        initialize("#" + items[i].id);
-      }
+      } 
+      //else {
+       // initialize("#" + items[i].id);
+      //}
     }
   }
 });
