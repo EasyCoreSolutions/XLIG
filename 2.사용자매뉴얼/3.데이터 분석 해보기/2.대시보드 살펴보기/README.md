@@ -8,7 +8,7 @@
 
 대시보드를 살펴보겠습니다.<br><br>
 
-<img src="https://user-images.githubusercontent.com/57983744/203735892-eac04b41-e52c-4f73-ad94-e116e512b39d.png"><br>
+<img src="https://user-images.githubusercontent.com/57983744/204942387-b2719d5b-fe0d-4387-baf4-2d1d9c13d832.png"><br>
 
 몇가지 눈에 띄는 점을 본다면,<br>
 - 2월에서 3월사이에 고객수가 폭발적으로 증가했습니다.<br>
@@ -19,16 +19,16 @@
 <br>
 <h3>월별로 대시보드 보기</h3>
 &nbsp;대시보드의 특이점에 따라 먼저 2월의 대시보드와 3월의 대시보드를 비교해보겠습니다.
-<h5>2월 대시보드</h5>
-<img src="https://user-images.githubusercontent.com/57983744/203736951-857b48cd-a616-47ef-bbfc-5afa49e578e0.png">
-<h5>3월 대시보드</h5>
-<img src="https://user-images.githubusercontent.com/57983744/203737151-34bc2cab-fbb6-43ec-b816-eb9708470c03.png"><br>
-2월과 3월의 대시보드를 비교하여 본다면,<br>
+<h5>1-2월 대시보드</h5>
+<img src="https://user-images.githubusercontent.com/57983744/204942389-bb5fa3a1-eeb8-4004-b025-c6bc60337d7a.png">
+<h5>3-4월 대시보드</h5>
+<img src="https://user-images.githubusercontent.com/57983744/204942392-5fdf9392-40b6-458b-97a3-81d98f1810f9.png"><br>
+1-2월과 3-4월의 대시보드를 비교하여 본다면,<br>
 
 - 티셔츠, 점퍼의 고객수가 5천명 가량 크게 증가했습니다.<br>
 - 성별, 연령, 고객등급은 큰 차이가 없습니다.<br>
 성별과 연령, 고객등급의 비율은 큰 차이가 없지만 팔리는 옷의 종류가 조금 바뀌었습니다.<br>
-티셔츠와 점퍼를 구매한 고객수가 5천명 가량 크게 늘은것을 볼 수 있습니다.
+티셔츠와 점퍼를 구매한 고객수가 크게 늘은것을 볼 수 있습니다.
 <br><br><br>
 <a href="/XLIG/2.사용자매뉴얼/3.데이터 분석 해보기/1.매출대시보드 생성하기/">(이전) 매출대시보드 생성하기</a><br>
 <a href="/XLIG/2.사용자매뉴얼/3.데이터 분석 해보기/3.장바구니분석으로 마케팅 대상 찾기/">(다음) 장바구니 분석으로 마케팅 대상 찾기</a>
