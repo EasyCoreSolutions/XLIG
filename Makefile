@@ -18,7 +18,9 @@ help:
 	@echo "    checkout  Reset the theme minified css and script to last commit"
 
 checkout:
-	
+	@git checkout _config.yml
+	@git checkout assets/js/theme.min.js
+	@git checkout assets/css/theme.min.css
 
 install:
 	@gem install jekyll bundler
