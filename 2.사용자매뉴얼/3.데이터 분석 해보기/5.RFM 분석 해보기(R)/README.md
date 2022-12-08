@@ -30,7 +30,7 @@ RFM 분석을 실행하기 위해서는 이전에 사용한 것과 동일하게,
 
 <img src="https://user-images.githubusercontent.com/86198387/204687519-30d0d6b5-db5a-473c-aed5-1b7249a3fbee.png"><br>
 
-핸들링한 데이터를 <b> 코드 실행 → 결과유형 → R데이터프레임</b>을 선택해 R의 데이터프레임형태로 변환해 전송합니다. RFM 분석을 위한 데이터 준비가 끝났습니다.<br>
+핸들링한 SQL 코드를 <b> 코드 실행 → 결과유형 → R데이터프레임</b>을 선택해 R의 데이터프레임형태로 변환해 전송합니다. RFM 분석을 위한 데이터 준비가 끝났습니다.<br>
 <br>
 
 <h3>2) RFM 분석하기</h3>
@@ -52,6 +52,64 @@ RFM 등급을 나누는 기준은 여러가지가 있으나, 이 문서에서는
 
 <img src = "https://user-images.githubusercontent.com/86198387/204732010-51f59724-dbf3-4093-a204-3b508e3140a9.png" /><br>
 
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+<pre>
+
+library(dplyr)
+
+tested <- xligsample
+
+R_result <- c()
+
+j <-0
+for(i in 1:5)
+{
+  j = j + i
+  R_result[i] = j/(1+2+3+4+5)
+}
+
+R_level <- quantile(tested$days, prob = R_result)
+
+FM_result <- c()
+
+j <- 0
+i <- i
+
+for(i in 1:5)
+{
+  j = j+i
+  FM_result[i] = 1-(j/(1+2+3+4+5))
+}
+
+F_level <- quantile(tested$Frequency, prob = FM_result)
+M_level <- quantile(tested$Money, prob = FM_result)
+
+tested <- tested %>% 
+  mutate(R_score = case_when(.$days <= R_level[1] ~ 5,
+                             .$days <= R_level[2] ~ 4,
+                             .$days <= R_level[3] ~ 3,
+                             .$days <= R_level[4] ~ 2,
+                             TRUE ~ 1),
+         F_score = case_when(.$Frequency >= F_level[1] ~ 5,
+                             .$Frequency >= F_level[2] ~ 4,
+                             .$Frequency >= F_level[3] ~ 3,
+                             .$Frequency >= F_level[4] ~ 2,
+                             TRUE ~ 1),
+         M_score = case_when(.$Money >= M_level[1] ~ 5,
+                             .$Money >= M_level[2] ~ 4,
+                             .$Money >= M_level[3] ~ 3,
+                             .$Money >= M_level[4] ~ 2,
+                             TRUE ~ 1))
+
+print(tested)
+
+</pre>
+
+</details><br>
+
+
 dplyr 라이브러리가 지원하는 case when 함수를 이용해 SQL과 유사하게 데이터에 RFM 등급을 추가하고 결과값을 엑셀시트에 출력해 데이터가 올바르게 추가되었는지 확인합니다.<br>
 
 기존 데이터에 R F M 등급이 추가되었음을 확인할 수 있습니다. 이를 토대로 가중치를 부여해 RFM 스코어를 산출하겠습니다.<br>
@@ -60,7 +118,70 @@ dplyr 라이브러리가 지원하는 case when 함수를 이용해 SQL과 유�
 
 <img src = "https://user-images.githubusercontent.com/86198387/204734601-f334a8e3-db01-4cfb-b0e5-88d0390f6766.png" /><br><br>
 
+
+
 <img src = "https://user-images.githubusercontent.com/86198387/204735501-77df9076-5fb1-464b-a93a-796e233dc84a.png" /><br>
+
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+<pre>
+
+R_table <- tested %>%
+  group_by(R_score) %>%
+  summarise(Cust = n_distinct(customer_id),
+            tot_Money = sum(Money))
+
+R_table <- R_table %>%
+  mutate(Cust_prop = Cust/sum(Cust),
+         Money_prop = tot_Money/sum(tot_Money),
+         Effect = Money_prop/Cust_prop) %>%
+  arrange(desc(R_score))
+
+R_effect <- sum(R_table$Effect)
+
+F_table <- tested %>%
+  group_by(F_score) %>%
+  summarise(Cust = n_distinct(customer_id),
+            tot_Money = sum(Money))
+
+F_table <- F_table %>%
+  mutate(Cust_prop = Cust/sum(Cust),
+         Money_prop = tot_Money/sum(tot_Money),
+         Effect = Money_prop/Cust_prop) %>%
+  arrange(desc(F_score))
+
+F_effect <- sum(F_table$Effect)
+
+M_table <- tested %>%
+  group_by(M_score) %>%
+  summarise(Cust = n_distinct(customer_id),
+            tot_Money = sum(Money))
+
+M_table <- M_table %>%
+  mutate(Cust_prop = Cust/sum(Cust),
+         Money_prop = tot_Money/sum(tot_Money),
+         Effect = Money_prop/Cust_prop) %>%
+  arrange(desc(M_score))
+
+M_effect <- sum(M_table$Effect)
+
+RFM_effect <- sum(R_effect,F_effect,M_effect)
+
+weight <- c(R_effect/RFM_effect, F_effect/RFM_effect, M_effect/RFM_effect)
+
+
+RFM_function <- function(x, y, z, w){
+  RFM_Score  <- x*w[1]+y*w[2]+z*w[3]
+  return(RFM_Score)
+}
+
+tested_set <- tested %>%
+  mutate(RFM_Score = RFM_function(tested$R_score, tested$F_score, tested$M_score, w = Weight))
+
+</pre>
+
+</details><br>
 
 위와 같이 R 코드를 이용해 등급별 고객 구성비 대비 매출 비중의 합계값을 가중치로 산출하고, 이 값을 데이터에 부여하기 위해 함수를 생성해 작동시킵니다. 데이터에 RFM 스코어가 정상적으로 부여되었는지 엑셀 시트로 출력해 확인합니다.<br>
 
@@ -82,11 +203,85 @@ R의 시각화 패키지인 ggplot을 이용해 고객군의 분포료를 먼저
 
 <img src = "https://user-images.githubusercontent.com/86198387/204741332-378a20ac-2f6c-4d23-9852-f9569401f9ce.png"/><br>
 
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+<pre>
+
+library(ggplot2)
+
+a_plot <- ggplot(data = tested_set, aes(x = RFM_Score, y = Money, color = RFM_Score)) +
+  geom_point(position = "jitter") +
+  theme_bw()
+a_plot
+
+b_plot <- ggplot(data = tested_set, aes(x = days, y = Money, color = RFM_Score)) +
+  geom_point(position = "jitter") +
+  theme_bw()
+b_plot
+
+c_plot <- ggplot(data = tested_set, aes(x = Frequency, y = Money, color = RFM_Score)) +
+  geom_point(position = "jitter") +
+  theme_bw()
+c_plot
+
+d_plot <- ggplot(data = tested_set, aes(x = days, y = Frequency, color = RFM_Score)) +
+  geom_point(position = "jitter") +
+  theme_bw()
+d_plot
+
+</pre>
+
+</details><br>
+
 코드를 실행하면 엑셀 화면에 시각화 차트가 출력됩니다.<br>
 
 각 차트의 형태를 통해 RFM 스코어가 상위에 속하는 고객군이 높은 매출을 기록한다는 사실이나, 구매 빈도는 높지만 구매 금액이 낮은 고객군, 구매 빈도가 높고 구매 금액도 높은 고객군등을 확인할 수 있습니다.<br>
 
 이러한 고객군들을 보다 확인하기 편하도록 집계하는 테이블을 대시보드에 추가하겠습니다.<br>
+
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+<pre>
+
+# RETENSION
+
+# RFM 스코어는 높지만 최근 구매(R)가 뜸해 구매 이탈 위험이 있는 고객을 위한 집계
+
+risk_cust <- tested_set %>%
+  filter(RFM_Score >= 3 & R_score == 2)
+
+
+risk_cust %>% group_by(R_score,F_score,M_score,RFM_Score) 
+        %>% summarise(CUST_CNT = n_distinct(customer_id), tot_Money = sum(Money)) %>% arrange(desc(CUST_CNT, tot_Money))
+
+
+# Up-Sell
+
+# 구매 빈도는 높지만 구매 금액이 높지 않은 고객에게 구매 유도를 위한 집계
+
+upsell_cust <- tested_set %>%
+  filter(F_score == 4  & M_score == 2 )
+
+
+upsell_cust %>% group_by(R_score,F_score,M_score,RFM_Score) 
+          %>% summarise(CUST_CNT = n_distinct(customer_id), tot_Money = sum(Money)) %>% arrange(desc(CUST_CNT, tot_Money))
+
+
+# Cross-Sell
+
+# 구매 금액은 많지만 구매 빈도는 적은 고객에게 구매 유도를 위한 집계
+
+crosssell_cust <- tested_set %>%
+  filter(M_score == 3 & F_score == 2 )
+
+crosssell_cust %>% group_by(R_score,F_score,M_score,RFM_Score) 
+           %>% summarise(CUST_CNT = n_distinct(customer_id), tot_Money = sum(Money)) %>% arrange(desc(CUST_CNT, tot_Money))
+
+</pre>
+
+</details><br>
 
 <img src = "https://user-images.githubusercontent.com/86198387/204742582-d056e92a-5744-4ca5-ab80-7836388797aa.png"/><br>
 
