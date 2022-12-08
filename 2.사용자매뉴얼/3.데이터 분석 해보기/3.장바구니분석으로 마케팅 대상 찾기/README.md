@@ -94,7 +94,7 @@ WHERE 1=1
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
+<code>
 
 library(arules)
 rdf1$CUST_ID<-NULL
@@ -106,7 +106,7 @@ rule<-sort(rule,by='lift')
 result<-inspect(rule)
 
 
-```
+</code>
 
 </details><br>
 rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf1시트에 출력합니다.
