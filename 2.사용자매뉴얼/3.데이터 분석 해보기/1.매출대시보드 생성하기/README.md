@@ -15,10 +15,9 @@
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
-
+<pre>
 select * from sample
-```
+</pre>
 
 </details><br>
 &nbsp;분석할 데이터가 있는 데이터베이스의 접속정보를 선택하고 데이터를 불러오는 쿼리를 입력합니다.<br>
@@ -46,15 +45,13 @@ select * from sample
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
-
+<pre>
 YYYYMM - select SALE_DT from sample group by SALE_DT
 ITEM   - select ITEM from sample group by ITEM
 GENDER - select GENDER from sample group by GENDER
 AGE    - select AGE from sample group by AGE
 GRADE  - select GRADE from sample group by GRADE
-
-```
+</pre>
 
 </details><br>
 &nbsp;팝업시트에 필요한 데이터를 불러오는 쿼리 5개를 작성하여 commcode 시트에 불러오겠습니다.<br>
@@ -72,8 +69,7 @@ range에는 commcode 시트에 불러왔던 데이터의 범위를 지정하여�
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
-
+<pre>
 select * from sample
 where 1=1
 [and GENDER in ($$pivotmaster!B1$$)]
@@ -81,8 +77,7 @@ where 1=1
 [and GRADE in ($$pivotmaster!D1$$)]
 [and ITEM in ($$pivotmaster!E1$$)]
 [and SALE_DT in ($$pivotmaster!F1$$)]
-
-```
+</pre>
 
 </details><br>
 &nbsp;데이터를 불러오는 쿼리의 WHERE 절에 targetcell의 값들을 불러오는 값들을 입력해주면 버튼을 통해 선택하는 값에 따라 변경되는 쿼리가 완성됩니다.<br>

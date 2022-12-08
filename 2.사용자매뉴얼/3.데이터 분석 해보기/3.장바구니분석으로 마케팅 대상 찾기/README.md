@@ -16,8 +16,7 @@
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
-
+<pre>
   SELECT ITEM
       , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = 'ACC' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS ACC
       , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '기타' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 기타
@@ -43,8 +42,7 @@
  [and ITEM in ($$pivotmaster!E1$$)]
  [and SALE_DT in ($$pivotmaster!F1$$)]
   GROUP BY ITEM
-
-```
+</pre>
 
 </details><br>
 새로운 탭에 히트맵 데이터를 가져오기 위한 쿼리를 작성하고 
@@ -56,8 +54,7 @@
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
-
+<pre>
   SELECT CUST_ID
      , MAX(CASE WHEN ITEM = '다운' THEN 1 ELSE 0 END) AS '다운' 
      , MAX(CASE WHEN ITEM = '데님' THEN 1 ELSE 0 END) AS '데님' 
@@ -83,8 +80,7 @@ WHERE 1=1
  [and ITEM in ($$pivotmaster!E1$$)]
  [and SALE_DT in ($$pivotmaster!F1$$)]
  GROUP BY CUST_ID
-
-```
+</pre>
 
 </details><br>
 장바구니 분석을 하기 위해 필요한 데이터셋을 만들기 위한 쿼리를 입력하고 rdf1 이름으로 데이터프레임을 만들겠습니다.<br>
@@ -95,7 +91,6 @@ WHERE 1=1
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
 <pre>
-
 library(arules)
 rdf1$CUST_ID<-NULL
 rdf1$AUTOSEQ<-NULL
@@ -104,8 +99,6 @@ dat<-as(dat,"transactions")
 rule<-apriori(dat,control=list(verbos=F),parameter=list(support  0.05, confidence = 0.5, minlen=2))
 rule<-sort(rule,by='lift')
 result<-inspect(rule)
-
-
 </pre>
 
 </details><br>
@@ -136,8 +129,7 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
-
+<pre>
 library(arules)
 rdf1$CUST_ID<-NULL
 rdf1$AUTOSEQ<-NULL
@@ -146,10 +138,7 @@ dat<-as(dat,"transactions")
 rule<-apriori(dat,control=list(verbos=F),parameter=list(support = [[##Dashboard2!C27##]], confidence = [[##Dashboard2!C29##]],minlen=2))
 rule<-sort(rule,by='lift')
 result<-inspect(rule)
-
-
-
-```
+</pre>
 
 </details><br>
 
