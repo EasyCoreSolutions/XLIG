@@ -96,13 +96,13 @@ WHERE 1=1
 
 <code>
 
-library(arules)
-rdf1$CUST_ID<-NULL
-rdf1$AUTOSEQ<-NULL
-dat<-as.data.frame(sapply(rdf1,as.logical))
-dat<-as(dat,"transactions")
-rule<-apriori(dat,control=list(verbos=F),parameter=list(support  0.05, confidence = 0.5, minlen=2))
-rule<-sort(rule,by='lift')
+library(arules)<br>
+rdf1$CUST_ID<-NULL<br>
+rdf1$AUTOSEQ<-NULL<br>
+dat<-as.data.frame(sapply(rdf1,as.logical))<br>
+dat<-as(dat,"transactions")<br>
+rule<-apriori(dat,control=list(verbos=F),parameter=list(support  0.05, confidence = 0.5, minlen=2))<br>
+rule<-sort(rule,by='lift')<br>
 result<-inspect(rule)
 
 
