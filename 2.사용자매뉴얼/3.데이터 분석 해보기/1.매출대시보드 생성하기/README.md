@@ -12,6 +12,15 @@
 <h5>(1) 쿼리 작성</h5>
 <div align=center>
 <img src="https://user-images.githubusercontent.com/57983744/204941620-8bcccaea-509f-43cc-b8f4-b259e72b4557.png"></div>
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+```
+
+select * from sample
+```
+
+</details><br>
 &nbsp;분석할 데이터가 있는 데이터베이스의 접속정보를 선택하고 데이터를 불러오는 쿼리를 입력합니다.<br>
 차트만들기에 좋은 피벗테이블로 결과유형을 선택하고 피벗테이블을 모두 모아놓을 시트 'pivotmaster'에 데이터를 불러오겠습니다.
 <h5>(2) 데이터 선택</h5>
@@ -34,6 +43,20 @@
 <h5>(1) 팝업선택시트 만들기</h5>
 <div align=center>
 <img src="https://user-images.githubusercontent.com/57983744/203703963-58d46055-8905-4d26-a43f-53b617dfdb88.png"></div>
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+```
+
+YYYYMM - select SALE_DT from sample group by SALE_DT
+ITEM   - select ITEM from sample group by ITEM
+GENDER - select GENDER from sample group by GENDER
+AGE    - select AGE from sample group by AGE
+GRADE  - select GRADE from sample group by GRADE
+
+```
+
+</details><br>
 &nbsp;팝업시트에 필요한 데이터를 불러오는 쿼리 5개를 작성하여 commcode 시트에 불러오겠습니다.<br>
 <div align=center>
 <img src="https://user-images.githubusercontent.com/57983744/203704399-854ff033-6d53-421f-8361-b698b0e4a3a0.png"></div>
@@ -46,6 +69,22 @@ range에는 commcode 시트에 불러왔던 데이터의 범위를 지정하여�
 <h5>(3) 쿼리 수정</h5>
 <div align=center>
 <img src="https://user-images.githubusercontent.com/57983744/204941735-90c14eef-0e40-4f5d-9ee6-b406cd6da0ba.png"></div>
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+```
+
+select * from sample
+where 1=1
+[and GENDER in ($$pivotmaster!B1$$)]
+[and AGE in ($$pivotmaster!C1$$)]
+[and GRADE in ($$pivotmaster!D1$$)]
+[and ITEM in ($$pivotmaster!E1$$)]
+[and SALE_DT in ($$pivotmaster!F1$$)]
+
+```
+
+</details><br>
 &nbsp;데이터를 불러오는 쿼리의 WHERE 절에 targetcell의 값들을 불러오는 값들을 입력해주면 버튼을 통해 선택하는 값에 따라 변경되는 쿼리가 완성됩니다.<br>
 <a href="/XLIG/2.사용자매뉴얼/2.매크로 기능/4.매크로 활용/">코드에 적용하기</a><br><br>
 <img src="https://user-images.githubusercontent.com/57983744/203720623-8734d125-ff07-4541-b5f9-3ecea08d6f1a.png"><br>

@@ -13,16 +13,102 @@
 많이 팔린 10개의 옷의 종류는 기존의 데이터에서 구할 수 있기때문에 히트맵에 필요한 쿼리만 새로 작성하여 pivotmaster시트에 가져오도록 하겠습니다.
 <img src="https://user-images.githubusercontent.com/57983744/204942655-42309db2-3782-4dc8-a2a4-61d3d2820d31.png">
 <br>
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+```
+
+  SELECT ITEM
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = 'ACC' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS ACC
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '기타' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 기타
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '다운' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 다운
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '데님' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 데님
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '바지' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 바지
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '반바지' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 반바지
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '블라우스' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 블라우스
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '스웨터' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 스웨터
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '우븐셔츠' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 우븐셔츠
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '우븐조끼' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 우븐조끼
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '원피스' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 원피스
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '자켓' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 자켓
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '점퍼' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 점퍼
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '코트' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 코트
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '특종' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 특종
+      , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = '티셔츠' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS 티셔츠
+   FROM crm_mart_hj.sample
+  where 1=1
+ [and GENDER in ($$pivotmaster!B1$$)]
+ [and AGE in ($$pivotmaster!C1$$)]
+ [and GRADE in ($$pivotmaster!D1$$)]
+ [and ITEM in ($$pivotmaster!E1$$)]
+ [and SALE_DT in ($$pivotmaster!F1$$)]
+  GROUP BY ITEM
+
+```
+
+</details><br>
 새로운 탭에 히트맵 데이터를 가져오기 위한 쿼리를 작성하고 
 <img src="https://user-images.githubusercontent.com/57983744/204942658-122d1cbf-eb1c-4edc-b34d-66d0b59e4a59.png">
 히트맵 데이터를 pivotmaster 시트에 가져옵니다.
 <h5>(2) R데이터프레임 만들기</h5>
 
 <img src="https://user-images.githubusercontent.com/57983744/204942659-9b2f796b-859f-4235-aae9-3aec537498e0.png"><br>
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+```
+
+  SELECT CUST_ID
+     , MAX(CASE WHEN ITEM = '다운' THEN 1 ELSE 0 END) AS '다운' 
+     , MAX(CASE WHEN ITEM = '데님' THEN 1 ELSE 0 END) AS '데님' 
+     , MAX(CASE WHEN ITEM = '바지' THEN 1 ELSE 0 END) AS '바지' 
+     , MAX(CASE WHEN ITEM = '반바지' THEN 1 ELSE 0 END) AS '반바지' 
+     , MAX(CASE WHEN ITEM = '블라우스' THEN 1 ELSE 0 END) AS '블라우스' 
+     , MAX(CASE WHEN ITEM = '스웨터' THEN 1 ELSE 0 END) AS '스웨터' 
+     , MAX(CASE WHEN ITEM = '우븐셔츠' THEN 1 ELSE 0 END) AS '우븐셔츠' 
+     , MAX(CASE WHEN ITEM = '우븐조끼' THEN 1 ELSE 0 END) AS '우븐조끼' 
+     , MAX(CASE WHEN ITEM = '원피스' THEN 1 ELSE 0 END) AS '원피스' 
+     , MAX(CASE WHEN ITEM = '자켓' THEN 1 ELSE 0 END) AS '자켓' 
+     , MAX(CASE WHEN ITEM = '점퍼' THEN 1 ELSE 0 END) AS '점퍼' 
+     , MAX(CASE WHEN ITEM = '코트' THEN 1 ELSE 0 END) AS '코트' 
+     , MAX(CASE WHEN ITEM = '특종' THEN 1 ELSE 0 END) AS '특종' 
+     , MAX(CASE WHEN ITEM = '티셔츠' THEN 1 ELSE 0 END) AS '티셔츠' 
+     , MAX(CASE WHEN ITEM = 'ACC' THEN 1 ELSE 0 END) AS 'ACC' 
+     , MAX(CASE WHEN ITEM = '기타' THEN 1 ELSE 0 END) AS '기타' 
+  FROM crm_mart_hj.sample
+WHERE 1=1
+ [and GENDER in ($$pivotmaster!B1$$)]
+ [and AGE in ($$pivotmaster!C1$$)]
+ [and GRADE in ($$pivotmaster!D1$$)]
+ [and ITEM in ($$pivotmaster!E1$$)]
+ [and SALE_DT in ($$pivotmaster!F1$$)]
+ GROUP BY CUST_ID
+
+```
+
+</details><br>
 장바구니 분석을 하기 위해 필요한 데이터셋을 만들기 위한 쿼리를 입력하고 rdf1 이름으로 데이터프레임을 만들겠습니다.<br>
 <br>
 <h3>2) 장바구니 분석하기</h3>
 <img src="https://user-images.githubusercontent.com/57983744/204942663-37b81379-9a2f-4172-ad1b-21f46faef1f6.png"><br>
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+```
+
+library(arules)
+rdf1$CUST_ID<-NULL
+rdf1$AUTOSEQ<-NULL
+dat<-as.data.frame(sapply(rdf1,as.logical))
+dat<-as(dat,"transactions")
+rule<-apriori(dat,control=list(verbos=F),parameter=list(support  0.05, confidence = 0.5, minlen=2))
+rule<-sort(rule,by='lift')
+result<-inspect(rule)
+
+
+```
+
+</details><br>
 rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf1시트에 출력합니다.
 데이터셋을 logical형태로 변환하고 apriori 라이브러리를 이용해 지지도가 0.05, 신뢰도가 0.5 이상인 항목들을 향상도 순으로 출력하는 R코드를 입력하였습니다.
 <br><br>
@@ -47,6 +133,26 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <br><br>
 <img src="https://user-images.githubusercontent.com/57983744/204942673-f30b064d-4dd8-4879-8d27-8aed26f5715d.png">
 <br>
+<details>
+<summary> Sample 코드 접기 / 펼치기 </summary>
+
+```
+
+library(arules)
+rdf1$CUST_ID<-NULL
+rdf1$AUTOSEQ<-NULL
+dat<-as.data.frame(sapply(rdf1,as.logical))
+dat<-as(dat,"transactions")
+rule<-apriori(dat,control=list(verbos=F),parameter=list(support = [[##Dashboard2!C27##]], confidence = [[##Dashboard2!C29##]],minlen=2))
+rule<-sort(rule,by='lift')
+result<-inspect(rule)
+
+
+
+```
+
+</details><br>
+
 해당 입력값을 반영할 수 있도록 R코드를 수정합니다.<br><br>
 <img src="https://user-images.githubusercontent.com/57983744/204942675-9163b5a4-4418-4a10-b267-3f5796c1093b.png">
 <br>
