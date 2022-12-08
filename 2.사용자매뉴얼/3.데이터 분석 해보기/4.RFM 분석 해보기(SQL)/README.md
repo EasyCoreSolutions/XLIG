@@ -21,11 +21,11 @@ RFM 분석을 실행하기 위해서는 최근성(R) 구매빈도(F) 구매액(M
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
+
 
 select * from crm_mart_shj.xlig_sample2
 
-```
+
 
 
 </details><br>
@@ -37,7 +37,7 @@ DB에서 불러들인 샘플 데이터는 고객 ID와 구매일, 구매 금액�
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
-```
+
 
 select customer_id
      , MAX(trans_date) as Recency
@@ -47,7 +47,7 @@ select customer_id
   from crm_mart_shj.xlig_sample2
   group by customer_id
 
-```
+
 
 
 </details><br>
@@ -74,7 +74,7 @@ RFM 등급을 나누는 기준은 여러가지가 있으나, SQL을 사용하는
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
 
-```
+
 
 select Z.R_Level       
      , Z.F_Level       
@@ -111,7 +111,7 @@ select Z.R_Level
  group by RFM_SCORE
  order by SALE_AMT desc
 
-```
+
 
 </details> <br>
 
