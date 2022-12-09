@@ -61,18 +61,7 @@ library(dplyr)
 
 tested <- xligsample
 
-R_result <- c()
-
-j <-0
-for(i in 1:5)
-{
-  j = j + i
-  R_result[i] = j/(1+2+3+4+5)
-}
-
-R_level <- quantile(tested$days, prob = R_result)
-
-FM_result <- c()
+RFM_result <- c()
 
 j <- 0
 i <- i
@@ -80,28 +69,29 @@ i <- i
 for(i in 1:5)
 {
   j = j+i
-  FM_result[i] = 1-(j/(1+2+3+4+5))
+  RFM_result[i] = 1-(j/(1+2+3+4+5))
 }
 
-F_level <- quantile(tested$Frequency, prob = FM_result)
-M_level <- quantile(tested$Money, prob = FM_result)
+R_level <- quantile(tested$days, prob = RFM_result)
+F_level <- quantile(tested$Frequency, prob = RFM_result)
+M_level <- quantile(tested$Money, prob = RFM_result)
 
 tested <- tested %>% 
-  mutate(R_score = case_when(.$days <= R_level[1] ~ 5,
-                             .$days <= R_level[2] ~ 4,
+  mutate(R_score = case_when(.$days <= R_level[1] ~ 1,
+                             .$days <= R_level[2] ~ 2,
                              .$days <= R_level[3] ~ 3,
-                             .$days <= R_level[4] ~ 2,
-                             TRUE ~ 1),
-         F_score = case_when(.$Frequency >= F_level[1] ~ 5,
-                             .$Frequency >= F_level[2] ~ 4,
+                             .$days <= R_level[4] ~ 4,
+                             TRUE ~ 5),
+         F_score = case_when(.$Frequency >= F_level[1] ~ 1,
+                             .$Frequency >= F_level[2] ~ 2,
                              .$Frequency >= F_level[3] ~ 3,
-                             .$Frequency >= F_level[4] ~ 2,
-                             TRUE ~ 1),
-         M_score = case_when(.$Money >= M_level[1] ~ 5,
-                             .$Money >= M_level[2] ~ 4,
+                             .$Frequency >= F_level[4] ~ 4,
+                             TRUE ~ 5),
+         M_score = case_when(.$Money >= M_level[1] ~ 1,
+                             .$Money >= M_level[2] ~ 2,
                              .$Money >= M_level[3] ~ 3,
-                             .$Money >= M_level[4] ~ 2,
-                             TRUE ~ 1))
+                             .$Money >= M_level[4] ~ 4,
+                             TRUE ~ 5))
 
 print(tested)
 
