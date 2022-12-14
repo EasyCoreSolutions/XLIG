@@ -1,7 +1,7 @@
 
 # 스크립트 실행
 <div align= center>
-<img src="https://user-images.githubusercontent.com/57983744/203702092-978005cb-969c-4d17-8e1d-65d1cfc22200.png" >
+<img src="https://user-images.githubusercontent.com/57983744/207505313-219f8abd-aaf0-4f7b-85b1-701c37892f6a.png" >
 </div>
 <table border=0>
 <tr><td align=center>1.</td><td>신규</td><td>새로운 프로젝트를 실행합니다.</td></tr>
