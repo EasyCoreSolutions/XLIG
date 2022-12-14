@@ -1,5 +1,5 @@
 
-# 코드실행
+# 스크립트 실행
 <div align= center>
 <img src="https://user-images.githubusercontent.com/57983744/203702092-978005cb-969c-4d17-8e1d-65d1cfc22200.png" >
 </div>
