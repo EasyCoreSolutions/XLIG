@@ -15,7 +15,7 @@ PC 버전은 무료 소프트웨어로 제공되며, 개인용 목적으로 누�
 
 ---
 
-<br><div align = center> <h1> SSBI - XLIG의 목표 </h1>
+<div align = center> <h1> SSBI - XLIG의 목표 </h1>
 
 XLIG는 <b>Self Service - XL Insight Guide</b>의 약자입니다.
 
@@ -25,7 +25,8 @@ SSBI - XLIG는 사용자가 가장 친숙하게 사용하는 엑셀 환경에서
 
 ---
 
-<br><div align = center> <h1> SSBI - XLIG 모듈 구성</h1> 
+
+<div align = center> <h1> SSBI - XLIG 모듈 구성</h1> 
 
 SSBI - XLIG는 2개의 모듈(프로그램)으로 구성되어 있습니다. 두 모듈이 PC에 설치되어 있어야 정상적으로 PC 버전을 사용할 수 있습니다.<br>
 
@@ -44,7 +45,8 @@ SSBI - XLIG는 2개의 모듈(프로그램)으로 구성되어 있습니다. 두
 
 ---
 
-<br><div align = center> <h1> SSBI - XLIG 주요 기능</h1> 
+
+<div align = center> <h1> SSBI - XLIG 주요 기능</h1> 
 <br>
 <h5>◈ SQL을 지원하는 쿼리 도구</h5>
 
