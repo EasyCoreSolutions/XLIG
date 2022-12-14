@@ -1,108 +1,79 @@
-# SSBI Document
+<div align = center> <h1> SSBI - XLIG </h1> 
 
-이하 theme
 
-# jekyll-rtd-theme
+본 문서는 SSBI - XLIG를 PC에서 사용하기 위한 설치 문서와 사용자 메뉴얼로 구성되어 있습니다.
 
-![CI](https://github.com/rundocs/jekyll-rtd-theme/workflows/CI/badge.svg?branch=develop)
-![jsDelivr](https://data.jsdelivr.com/v1/package/gh/rundocs/jekyll-rtd-theme/badge)
+SSBI - XLIG는 PC 버전과 엔터프라이즈 버전으로 서비스됩니다.
 
-Just another documentation theme compatible with GitHub Pages
+PC 버전은 무료 소프트웨어로 제공되며, 개인용 목적으로 누구나 설치하여 사용할 수 있습니다.
 
-## What it does?
+엔터프라이즈 버전은 고성능의 서버를 활용할 수 있는 버전으로, 유료로 판매되는 제품입니다.
 
-This theme is inspired by [sphinx-rtd-theme](https://github.com/readthedocs/sphinx_rtd_theme) and refactored with:
+본 문서는 XXBI - XLIG의 PC 버전을 중심으로 설치 방법과 사용자 가이드를 가이드하는 목적으로 제공됩니다.
 
-- [@primer/css](https://github.com/primer/css)
-- [github-pages](https://github.com/github/pages-gem) ([dependency versions](https://pages.github.com/versions/))
+</div><br>
 
-## Quick start
+---
 
-```yml
-remote_theme: rundocs/jekyll-rtd-theme
-remote_theme: rundocs/jekyll-rtd-theme
-remote_theme: rundocs/jekyll-rtd-theme
-remote_theme: rundocs/jekyll-rtd-theme
-remote_theme: rundocs/jekyll-rtd-theme
-```
+<br><div align = center> <h1> SSBI - XLIG의 목표 </h1>
 
-You can [generate](https://github.com/rundocs/starter-slim/generate) with the same files and folders from [rundocs/starter-slim](https://github.com/rundocs/starter-slim/)
+XLIG는 <b>Self Service - XL Insight Guide</b>의 약자입니다.
 
-## Usage
+SSBI - XLIG는 사용자가 가장 친숙하게 사용하는 엑셀 환경에서 데이터를 분석 및 레포팅할 수 있도록 지원하며, 사용자가 구성한 전체적인 분석 과정을 자동화할 수 있도록 개발되었습니다.
 
-Documentation that can guide how to create with Github pages, please refer to [rundocs.io](https://rundocs.io) for details
+</div><br>
 
-## Features
+---
 
-- Shortcodes (Toasts card, mermaid)
-- Pages Plugins (emoji, gist, avatar, mentions)
-- Auto generate sidebar
-- [Attribute List Definitions](https://kramdown.gettalong.org/syntax.html#attribute-list-definitions) (Primer/css utilities, Font Awesome 4)
-- Service worker (caches)
-- SEO (404, robots.txt, sitemap.xml)
-- Canonical Link (Open Graph, Twitter Card, Schema data)
+<br><div align = center> <h1> SSBI - XLIG 모듈 구성</h1> 
 
-## Options
+SSBI - XLIG는 2개의 모듈(프로그램)으로 구성되어 있습니다. 두 모듈이 PC에 설치되어 있어야 정상적으로 PC 버전을 사용할 수 있습니다.<br>
 
-| name          | default value        | description       |
-| ------------- | -------------------- | ----------------- |
-| `title`       | repo name            |                   |
-| `description` | repo description     |                   |
-| `url`         | user domain or cname |                   |
-| `baseurl`     | repo name            |                   |
-| `lang`        | `en`                 |                   |
-| `direction`   | `auto`               | `ltr` or `rtl`    |
-| `highlighter` | `rouge`              | Cannot be changed |
+<h4> ◆ 데이처 처리 엔진 모듈 </h4>
 
-```yml
-# folders sort
-readme_index:
-  with_frontmatter: true
+엑셀에서 데이터 처리 및 분석이 가능하도록 지원하는 엔진 모듈입니다.
+약 500MB 용량의 프로그램으로 데이터 처리를 담당합니다. 
+엔터프라이즈 버전에서는 서버에 설치되어 다수의 사용자를 지원하는 3-티어 구조로 작동합니다.<br>
 
-meta:
-  key1: value1
-  key2: value2
-  .
-  .
-  .
+<h4> ◆ 엑셀 애드인 프로그램 </h4>
 
-google:
-  gtag:
-  adsense:
+엑셀에서 사용하는 애드인 프로그램으로 SSBI - XLIG가 정상적으로 동작할 수 있도록 구성됩니다.
+엑셀 2016, Windows 10 이상의 환경에서 지원됩니다.
 
-mathjax: # this will prased to json, default: {}
+</div><br>
 
-mermaid:
-  custom:     # mermaid link
-  initialize: # this will prased to json, default: {}
+---
 
-scss:   # also _includes/extra/styles.scss
-script: # also _includes/extra/script.js
+<br><div align = center> <h1> SSBI - XLIG 주요 기능</h1> 
+<br>
+<h5>◈ SQL을 지원하는 쿼리 도구</h5>
 
-translate:
-  # shortcodes
-  danger:
-  note:
-  tip:
-  warning:
-  # 404
-  not_found:
-  # copyright
-  revision:
-  # search
-  searching:
-  search:
-  search_docs:
-  search_results:
-  search_results_found: # the "#" in this translate will replaced with results size!
-  search_results_not_found:
+엑셀 환경에서 SQL 쿼리를 실행할 수 있습니다. 
+쿼리 결과는 즉시 분석이 가능한 테이블, 혹은 피벗 테이블 형태로 엑셀 시트에 표현됩니다.
+<br>
 
-plugins:
-  - jemoji
-  - jekyll-avatar
-  - jekyll-mentions
-```
+<h5>◈ 다중 쿼리 실행 지원</h5>
 
-## The license
+다양한 DBMS의 SQL을 하나의 공간에서 작업 가능합니다. 
+Oracle, MSSQL, MySQL등 다중 DBMS에 한 번에 연결해 쿼리를 실행할 수 있습니다.
+<br>
 
-The theme is available as open source under the terms of the MIT License
+<h5>◈ 파이프라인 지원</h5>
+
+데이터를 얻기 위한 다양한 분석 쿼리를 순차적으로 실행하는 파이프라인을 지원합니다. 
+복잡한 쿼리 구성도 순서에 따라 정의하고 실행할 수 있습니다.
+<br>
+
+
+<h5>◈ R / Python 분석 지원</h5>
+
+데이터를 다각도로 바라보고 분석할 수 있도록 R / Python을 지원합니다.
+XLIG 환경에서 개발된 코드를 즉시 실행하고 결과를 엑셀 시트로 표현할 수 있습니다.
+<br>
+
+<h5>◈ 레포트 디플로잉과 쉐어링</h5>
+
+최종적으로 생성된 분석 레포트를 SSBI 서버에 저장해 다수의 사용자에게 공유할 수 있습니다.
+이를 통해 분석 결과의 공유와 재활용이 가능합니다.
+
+<br><br><br>
