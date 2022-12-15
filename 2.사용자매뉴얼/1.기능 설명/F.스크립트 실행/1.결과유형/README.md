@@ -25,7 +25,7 @@ backface-visibility: hidden;
 테이블은 데이터를 쉽게 조작하고 분석할 수 있도록 정렬 및 필터가 생성되어 있고 계산 및 디자인을 쉽게 할 수 있습니다.
 <br><br><br>
 <h3>4. 리스트</h3>
-<div align=center><img src="https://user-images.githubusercontent.com/57983744/203675374-51dfe5d8-e685-485d-a779-1bc3db9c29bf.png"></div>
+<div align=center><img src="https://user-images.githubusercontent.com/57983744/207803523-0149253a-659a-481a-a55f-3560127b34d1.png"></div>
 &nbsp;코드의 결과값을 변형없이 그대로 시트에 출력합니다.
 <br><br><br>
 <h3>5. 워크로 저장</h3>
