@@ -11,7 +11,7 @@ backface-visibility: hidden;
 <h3>1. 리스트(50줄페이징)</h3>
 
 <div align=center> <img src="https://user-images.githubusercontent.com/57983744/203673027-0eefd6c2-6015-4e50-8dd3-6aa9c4d9add8.png"></div>
-<div align=center> <img width=100% src="https://i.esdrop.com/d/f/sygwj4wGwY/xBruyXBqtf.png"></div>
+<div align=center> <img width="100%" src="https://i.esdrop.com/d/f/sygwj4wGwY/xBruyXBqtf.png"></div>
 &nbsp;코드의 결과값을 50줄 당 ( [1] 참고 ) 1페이지로 잘라서 테이블로 표현합니다.<br>
 엑셀의 최대 로우수는 1,048,576개 입니다. 데이터의 양이 많아지면서 이보다 많은 데이터가 존재 할 때가 자주 있습니다. 이런 경우 엑셀에서의 작업환경이 제약이 생길 수 있는데 엑셀에서도 표현할 수 있도록 페이징( [2] 참고 ) 처리되어 출력됩니다.
 <br><br><br>
