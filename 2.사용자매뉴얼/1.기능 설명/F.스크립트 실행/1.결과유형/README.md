@@ -7,11 +7,11 @@ transform: translateZ(0);
 backface-visibility: hidden;
 }
 </style>
-<body>
+
 <h3>1. 리스트(50줄페이징)</h3>
 
 <div align=center> <img src="https://user-images.githubusercontent.com/57983744/203673027-0eefd6c2-6015-4e50-8dd3-6aa9c4d9add8.png"></div>
-<div align=center> <img style="max-width:100%" src="https://user-images.githubusercontent.com/57983744/207783247-3c696aca-979c-4202-b6a0-91227a3021cf.png"></div>
+<div align=center> <img style="max-width:100%" src="https://user-images.githubusercontent.com/57983744/207791724-c24f6c8a-35e3-486e-8259-c8a07bb06cbc.png"></div>
 &nbsp;코드의 결과값을 50줄 당 ( [1] 참고 ) 1페이지로 잘라서 테이블로 표현합니다.<br>
 엑셀의 최대 로우수는 1,048,576개 입니다. 데이터의 양이 많아지면서 이보다 많은 데이터가 존재 할 때가 자주 있습니다. 이런 경우 엑셀에서의 작업환경이 제약이 생길 수 있는데 엑셀에서도 표현할 수 있도록 페이징( [2] 참고 ) 처리되어 출력됩니다.
 <br><br><br>
@@ -50,4 +50,3 @@ Import를 성공했다는 메시지와 함께 테이블/필드 속성에서 클�
 <div align=center><img src="https://user-images.githubusercontent.com/57983744/203676554-7f09bd88-5208-4e44-8469-3f3235906cdb.png"></div>
 &nbsp;코드의 결과를 Python Pandas 데이터프레임으로 저장합니다.<br>
 접속정보를 Python으로 바꾼다면 저장한 데이터프레임 이름을 변수로 하여 즉시 사용하실 수 있습니다.
-</body>
