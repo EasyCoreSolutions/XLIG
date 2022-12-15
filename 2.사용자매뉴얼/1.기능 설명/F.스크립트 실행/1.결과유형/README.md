@@ -1,5 +1,12 @@
 
 # 결과 유형
+<style>
+img{
+image-rendering: -webkit-optimize-contrast;
+transform: translateZ(0); 
+backface-visibility: hidden;
+}
+</style>
 
 <h3>1. 리스트(50줄페이징)</h3>
 
