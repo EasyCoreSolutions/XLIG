@@ -20,7 +20,7 @@ backface-visibility: hidden;
 코드의 결과값을 번거로운 과정 없이 원클릭으로 즉시 피벗테이블을 생성 할 수 있습니다.
 <br><br><br>
 <h3>3. 리스트테이블</h3>
-<div align=center><img src="https://user-images.githubusercontent.com/57983744/203675164-98c1a497-3fd0-4678-934e-f2992f09c57d.png"></div>
+<div align=center><img src="https://user-images.githubusercontent.com/57983744/207802448-4122e04f-279d-4a8d-bb2c-59b56e6200a1.png"></div>
 &nbsp;코드의 결과값 전체를 테이블 형태로 시트에 출력합니다.<br>
 테이블은 데이터를 쉽게 조작하고 분석할 수 있도록 정렬 및 필터가 생성되어 있고 계산 및 디자인을 쉽게 할 수 있습니다.
 <br><br><br>
