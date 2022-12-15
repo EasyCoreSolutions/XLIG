@@ -10,13 +10,12 @@ backface-visibility: hidden;
 
 <h3>1. 리스트(50줄페이징)</h3>
 
-<div align=center> <img src="https://user-images.githubusercontent.com/57983744/203673027-0eefd6c2-6015-4e50-8dd3-6aa9c4d9add8.png"></div>
 <div align=center> <img src="https://user-images.githubusercontent.com/57983744/207800372-c5afeb21-b00e-40f5-ac54-417a79bc3e49.png"></div>
 &nbsp;코드의 결과값을 50줄 당 ( [1] 참고 ) 1페이지로 잘라서 테이블로 표현합니다.<br>
 엑셀의 최대 로우수는 1,048,576개 입니다. 데이터의 양이 많아지면서 이보다 많은 데이터가 존재 할 때가 자주 있습니다. 이런 경우 엑셀에서의 작업환경이 제약이 생길 수 있는데 엑셀에서도 표현할 수 있도록 페이징( [2] 참고 ) 처리되어 출력됩니다.
 <br><br><br>
 <h3>2. 피벗테이블</h3>
-<div align=center><img src="https://user-images.githubusercontent.com/57983744/203674956-f57cb597-83a1-409e-a0a9-b2ec35404dcd.png"></div>
+<div align=center><img src="https://user-images.githubusercontent.com/57983744/207801674-76eab357-2a61-471e-a79d-6b0ceb616802.png"></div>
 &nbsp;피벗테이블은 함수 없이 다양한 변수를 조합하고 계산하며 요약할 수 있는 좋은 기능입니다.<br>
 코드의 결과값을 번거로운 과정 없이 원클릭으로 즉시 피벗테이블을 생성 할 수 있습니다.
 <br><br><br>
