@@ -40,12 +40,9 @@ Import를 성공했다는 메시지와 함께 테이블/필드 속성에서 클�
 &nbsp;코드의 결과값의 기술 통계정보를 표현합니다.<br>
 칼럼 별 타입, 개수, 합계, 최대값, 최소값, 평균값, 범위, NULL값의 개수, BLANK의 개수와 같이 자료의 특성을 나타내는 값들을 보여줍니다.
 <br><br><br>
-<h3>7. R데이터프레임</h3>
-<div align=center><img src="https://user-images.githubusercontent.com/57983744/203676428-e5c3878d-e843-472e-ab94-3627c7ce18be.png"></div>
-&nbsp;코드의 결과를 R 데이터프레임으로 저장합니다.<br>
-접속정보를 R로 바꾼다면 저장한 데이터프레임 이름을 변수로 하여 즉시 사용하실 수 있습니다.
-<br><br><br>
-<h3>8. PANDAS로 저장</h3>
-<div align=center><img src="https://user-images.githubusercontent.com/57983744/203676554-7f09bd88-5208-4e44-8469-3f3235906cdb.png"></div>
-&nbsp;코드의 결과를 Python Pandas 데이터프레임으로 저장합니다.<br>
-접속정보를 Python으로 바꾼다면 저장한 데이터프레임 이름을 변수로 하여 즉시 사용하실 수 있습니다.
+<h3>7. 내려받기</h3>
+<img src="https://user-images.githubusercontent.com/57983744/207806695-9b3e37a2-052e-49bf-a76d-f206abbed646.png">
+<br>
+<img src="https://user-images.githubusercontent.com/57983744/207807114-86476821-a5f1-422b-8612-1c35639a722c.png"><br>
+&nbsp;코드의 결과를 CSV 파일로 저장합니다.<br>
+저장한 파일은 SSBI-XLIG-> webapps -> dataqueryConfig -> Directories -> unload -> {계정} 폴더 에 저장됩니다.
