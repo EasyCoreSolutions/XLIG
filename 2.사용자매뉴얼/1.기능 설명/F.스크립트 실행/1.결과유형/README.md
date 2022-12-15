@@ -7,7 +7,7 @@ transform: translateZ(0);
 backface-visibility: hidden;
 }
 </style>
-
+<body>
 <h3>1. 리스트(50줄페이징)</h3>
 
 <div align=center> <img src="https://user-images.githubusercontent.com/57983744/203673027-0eefd6c2-6015-4e50-8dd3-6aa9c4d9add8.png"></div>
@@ -50,3 +50,4 @@ Import를 성공했다는 메시지와 함께 테이블/필드 속성에서 클�
 <div align=center><img src="https://user-images.githubusercontent.com/57983744/203676554-7f09bd88-5208-4e44-8469-3f3235906cdb.png"></div>
 &nbsp;코드의 결과를 Python Pandas 데이터프레임으로 저장합니다.<br>
 접속정보를 Python으로 바꾼다면 저장한 데이터프레임 이름을 변수로 하여 즉시 사용하실 수 있습니다.
+</body>
