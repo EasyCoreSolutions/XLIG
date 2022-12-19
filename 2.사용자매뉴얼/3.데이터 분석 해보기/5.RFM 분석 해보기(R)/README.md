@@ -52,29 +52,35 @@ RFM 등급을 나누는 기준은 여러가지가 있으나, 이 문서에서는
 
 <img src = "https://user-images.githubusercontent.com/86198387/204732010-51f59724-dbf3-4093-a204-3b508e3140a9.png" /><br>
 
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
+```
+# 작업을 위한 라이브러리 로딩
 
-<pre>
+library(dplyr) 
 
-library(dplyr)
+# 데이터 인풋 
 
 tested <- xligsample
 
-RFM_result <- c()
+# RFM 등급을 누적 백분위로 나누기 위한 함수 생성 작업
+
+RFM_result <- c() 
 
 j <- 0
 i <- i
 
-for(i in 1:5)
+for(i in 1:5) 
 {
   j = j+i
   RFM_result[i] = 1-(j/(1+2+3+4+5))
 }
 
+# RFM 등급 부여하기
+
 R_level <- quantile(tested$days, prob = RFM_result)
 F_level <- quantile(tested$Frequency, prob = RFM_result)
 M_level <- quantile(tested$Money, prob = RFM_result)
+
+# 구매 경과일로 R, 구매 빈도로 F, 총 구매액으로 M 등급 고객에게 부여하기
 
 tested <- tested %>% 
   mutate(R_score = case_when(.$days <= R_level[1] ~ 1,
@@ -93,11 +99,11 @@ tested <- tested %>%
                              .$Money >= M_level[4] ~ 4,
                              TRUE ~ 5))
 
+# 데이터 확인 
+
 print(tested)
 
-</pre>
-
-</details><br>
+```
 
 
 dplyr 라이브러리가 지원하는 case when 함수를 이용해 SQL과 유사하게 데이터에 RFM 등급을 추가하고 결과값을 엑셀시트에 출력해 데이터가 올바르게 추가되었는지 확인합니다.<br>
@@ -112,10 +118,11 @@ dplyr 라이브러리가 지원하는 case when 함수를 이용해 SQL과 유�
 
 <img src = "https://user-images.githubusercontent.com/86198387/204735501-77df9076-5fb1-464b-a93a-796e233dc84a.png" /><br>
 
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
+```
 
-<pre>
+# 가중치 생성 준비작업
+
+# R, F, M 점수별로 각각 고객을 집계해 가중치 산출 작업 수행
 
 R_table <- tested %>%
   group_by(R_score) %>%
@@ -160,18 +167,19 @@ RFM_effect <- sum(R_effect,F_effect,M_effect)
 
 weight <- c(R_effect/RFM_effect, F_effect/RFM_effect, M_effect/RFM_effect)
 
+# 가중치를 RFM 등급에 합산하기 위한 함수 작업
 
 RFM_function <- function(x, y, z, w){
   RFM_Score  <- x*w[1]+y*w[2]+z*w[3]
   return(RFM_Score)
 }
 
+# 데이터 테이블에 가중치가 포함된 RFM 등급 추가하기
+
 tested_set <- tested %>%
   mutate(RFM_Score = RFM_function(tested$R_score, tested$F_score, tested$M_score, w = Weight))
 
-</pre>
-
-</details><br>
+```
 
 위와 같이 R 코드를 이용해 등급별 고객 구성비 대비 매출 비중의 합계값을 가중치로 산출하고, 이 값을 데이터에 부여하기 위해 함수를 생성해 작동시킵니다. 데이터에 RFM 스코어가 정상적으로 부여되었는지 엑셀 시트로 출력해 확인합니다.<br>
 
@@ -193,12 +201,13 @@ R의 시각화 패키지인 ggplot을 이용해 고객군의 분포료를 먼저
 
 <img src = "https://user-images.githubusercontent.com/86198387/204741332-378a20ac-2f6c-4d23-9852-f9569401f9ce.png"/><br>
 
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
+```
 
-<pre>
+# 시각화를 위한 패키지 로딩 
 
 library(ggplot2)
+
+# 관점별로 시각화 차트 구성하기
 
 a_plot <- ggplot(data = tested_set, aes(x = RFM_Score, y = Money, color = RFM_Score)) +
   geom_point(position = "jitter") +
@@ -220,9 +229,9 @@ d_plot <- ggplot(data = tested_set, aes(x = days, y = Frequency, color = RFM_Sco
   theme_bw()
 d_plot
 
-</pre>
+```
 
-</details><br>
+<br>
 
 코드를 실행하면 엑셀 화면에 시각화 차트가 출력됩니다.<br>
 
@@ -230,12 +239,9 @@ d_plot
 
 이러한 고객군들을 보다 확인하기 편하도록 집계하는 테이블을 대시보드에 추가하겠습니다.<br>
 
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
+```
 
-<pre>
-
-# RETENSION
+# RETENSION 분석
 
 # RFM 스코어는 높지만 최근 구매(R)가 뜸해 구매 이탈 위험이 있는 고객을 위한 집계
 
@@ -247,7 +253,7 @@ risk_cust %>% group_by(R_score,F_score,M_score,RFM_Score)
         %>% summarise(CUST_CNT = n_distinct(customer_id), tot_Money = sum(Money)) %>% arrange(desc(CUST_CNT, tot_Money))
 
 
-# Up-Sell
+# Up-Sell 분석
 
 # 구매 빈도는 높지만 구매 금액이 높지 않은 고객에게 구매 유도를 위한 집계
 
@@ -259,7 +265,7 @@ upsell_cust %>% group_by(R_score,F_score,M_score,RFM_Score)
           %>% summarise(CUST_CNT = n_distinct(customer_id), tot_Money = sum(Money)) %>% arrange(desc(CUST_CNT, tot_Money))
 
 
-# Cross-Sell
+# Cross-Sell 분석
 
 # 구매 금액은 많지만 구매 빈도는 적은 고객에게 구매 유도를 위한 집계
 
@@ -269,9 +275,9 @@ crosssell_cust <- tested_set %>%
 crosssell_cust %>% group_by(R_score,F_score,M_score,RFM_Score) 
            %>% summarise(CUST_CNT = n_distinct(customer_id), tot_Money = sum(Money)) %>% arrange(desc(CUST_CNT, tot_Money))
 
-</pre>
+```
 
-</details><br>
+<br>
 
 <img src = "https://user-images.githubusercontent.com/86198387/204742582-d056e92a-5744-4ca5-ab80-7836388797aa.png"/><br>
 

@@ -11,7 +11,7 @@ XLIG에 로그인하는 방법과 버전 정보 확인 및 DB 접속 정보를 �
 XLIG Addin을 사용하기 위해 접속하는 화면입니다. 접속서버 정보와 계정이 요구됩니다.
 <br>
 
-<img src = "https://user-images.githubusercontent.com/86198387/207483863-a1d98c51-6535-43e6-969d-1dbb5a63e581.png"/><br>
+<img src = "https://user-images.githubusercontent.com/86198387/207483863-a1d98c51-6535-43e6-969d-1dbb5a63e581.png" width = 60%/><br>
 
 
 - SSBI 접속서버 : SSBI에 접속하기 위해 설치된 서버의 URL을 입력합니다.

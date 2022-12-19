@@ -18,39 +18,34 @@ RFM 분석을 실행하기 위해서는 최근성(R) 구매빈도(F) 구매액(M
 <br><br>
 <img src = "https://user-images.githubusercontent.com/86198387/204686830-0f8f0a44-eb47-422f-9232-d60fe9786916.png" /><br>
 
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
-
-<pre>
-
-select * from crm_mart_shj.xlig_sample2
-
-</pre>
+```
 
 
-</details><br>
+select * from quadmax.sample_rfm
+
+```
+
+
+<br>
 
 DB에서 불러들인 샘플 데이터는 고객 ID와 구매일, 구매 금액이 포함된 데이터입니다. 이 데이터를 핸들링해 샘플 고객들의 최종 구매일(R), 구매 빈도(F), 총 구매 금액(M)을 산출하고 분석을 진행할 것입니다.<br>
 
 <img src = "https://user-images.githubusercontent.com/86198387/204687395-3f5f1f6e-ef0c-4ef7-9e42-cee226b6e5ae.png" /><br>
 
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
+```
 
-<pre>
-
-select customer_id
-     , MAX(trans_date) as Recency
-     , count(customer_id) as Frequency
-     , sum(tran_amount) as Money     
-     , datediff('2015-03-17', MAX(trans_date)) as days     
-  from crm_mart_shj.xlig_sample2
+select customer_id      /* 고객 번호 */
+     , MAX(trans_date) as Recency      /* 최근 구매일 = R */
+     , count(customer_id) as Frequency /* 총 구매 횟수 = F */
+     , sum(tran_amount) as Money       /* 총 구매 금액 = M */
+     , datediff('2015-03-17', MAX(trans_date)) as days  /* 최근 구매일로부터 지난 일수 */
+  from quadmax.sample_rfm
   group by customer_id
 
-</pre>
+```
 
 
-</details><br>
+<br>
 
 엑셀에서 형태를 확인한 샘플 데이터는 SQL을 이용해 집계합니다. 고객별(customer_id)로 최종 구매일(R), 구매 횟수(F), 총 구매 금액(M)을 산출했습니다. <br>
 
@@ -70,20 +65,16 @@ RFM 등급을 나누는 기준은 여러가지가 있으나, SQL을 사용하는
 
 <img src = "https://user-images.githubusercontent.com/86198387/205836682-ffd8e43c-1b48-4919-a4de-1bd2736a59b1.png" /><br>
 
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
+```
 
-
-<pre>
-
-select Z.R_Level       
-     , Z.F_Level       
-     , Z.M_Level       
-     , concat(Z.R_Level,Z.F_Level,Z.M_Level) as RFM_Score
-     , count(Z.customer_id) as CUS_CNT 
-     , sum(Z.Frequency) as SALE_QTY
-     , sum(Z.Monetary) as SALE_AMT    
-     , round(sum(Z.Monetary)/count(Z.customer_id),2) as AMT_CUSp   /*객단가*/
+select Z.R_Level       /* R 등급 */
+     , Z.F_Level       /* F 등급 */
+     , Z.M_Level       /* M 등급 */
+     , concat(Z.R_Level,Z.F_Level,Z.M_Level) as RFM_Grade /* RFM 등급 */
+     , count(Z.customer_id) as CUS_CNT /* 구매고객수 */
+     , sum(Z.Frequency) as SALE_QTY    /* 구매수량 */
+     , sum(Z.Monetary) as SALE_AMT     /* 구매금액 */
+     , round(sum(Z.Monetary)/count(Z.customer_id),2) as AMT_CUSp  /* 객단가 */
   from (
            select A.customer_id
                 , A.Recency 
@@ -99,19 +90,19 @@ select Z.R_Level
                        when ROUND(PERCENT_RANK() over(order by Monetary),2) between 0.34 and 0.67 then 2
                                                                                                   else 1 end as M_Level           
              from (
-                      select A0.customer_id  
-                           , max(A0.trans_date)  as Recency    
-                           , count(A0.customer_id) as Frequency
-                           , sum(A0.tran_amount) as Monetary
-                        from crm_mart_shj.sample_rfm A0 
-                       group by A0.customer_id
+                      select A0.customer_id  /* 고객 번호 */
+                           , max(A0.trans_date)  as Recency      /* 최근 구매일 → R */
+                           , count(A0.customer_id) as Frequency  /* 총 구매횟수 → F */
+                           , sum(A0.tran_amount) as Monetary     /* 총 구매액 → M   */
+                        from quadmax.sample_rfm A0 
+                       group by A0.customer_id /* 고객별 R / F / M을 부여하는 쿼리문 */
                   )A   
         ) Z  
  where M_Level = 1 and F_Level in ('2,''3')
  group by RFM_SCORE
  order by SALE_AMT desc
 
-</pre>
+```
 
 </details> <br>
 

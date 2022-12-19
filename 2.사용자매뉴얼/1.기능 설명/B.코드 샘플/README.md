@@ -5,7 +5,7 @@ XLIG에서 사용할 수 있도록 미리 작성된 코드 샘플들을 열람�
 
 ---
 
-<img src = "https://user-images.githubusercontent.com/86198387/203680084-d2fd3f85-1aee-4d9c-ae63-ce0c7db50128.png" />
+<img src = "https://user-images.githubusercontent.com/86198387/203680084-d2fd3f85-1aee-4d9c-ae63-ce0c7db50128.png" width = 90%/>
 
 
 - 탭 참조 : 특정 탭을 참조하기 위해 사용하는 코드입니다.
