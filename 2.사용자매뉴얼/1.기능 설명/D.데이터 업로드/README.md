@@ -9,7 +9,7 @@ XLIG에서 작업한 데이터 테이블을 R 데이터 프레임으로 변환�
 
 - [x] 데이터 업로드할 테이블을 선택한 다음 데이터 업로드 버튼을 눌러 창을 팝업시킵니다.
 
-<img src = "https://user-images.githubusercontent.com/86198387/204196067-43e7472e-3e7b-43f8-8af8-b4196a756d99.png" width = 60% />
+<img src = "https://user-images.githubusercontent.com/86198387/204196067-43e7472e-3e7b-43f8-8af8-b4196a756d99.png" width = "60%" />
 
 - 테이블 확인 : 앞서 선택한 테이블 영역의 행렬 숫자를 수치로 표시합니다.
 <br>

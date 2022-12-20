@@ -9,7 +9,7 @@ XLIG에 연결되어 있는 DB의 테이블 스키마 / 필드 스키마를 열�
 
 - 커넥션
 
-<img src = "https://user-images.githubusercontent.com/86198387/204195409-7ec88228-0057-4567-89d1-1803e78b9b67.png" width = 90% />
+<img src = "https://user-images.githubusercontent.com/86198387/204195409-7ec88228-0057-4567-89d1-1803e78b9b67.png" width = "90%" />
 
 
 - [x] 접근가능한 DB의 목록이 표시됩니다.
