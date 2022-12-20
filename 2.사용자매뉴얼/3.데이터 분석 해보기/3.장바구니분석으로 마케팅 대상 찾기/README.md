@@ -50,7 +50,7 @@
 히트맵 데이터를 pivotmaster 시트에 가져옵니다.
 <h5>(2) R데이터프레임 만들기</h5>
 
-<img src="https://user-images.githubusercontent.com/57983744/204942659-9b2f796b-859f-4235-aae9-3aec537498e0.png"><br>
+<img src="https://user-images.githubusercontent.com/57983744/208564778-83f2ea39-7d01-4750-85ce-22867c25d816.png"><br>
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
@@ -83,18 +83,19 @@ WHERE 1=1
 </pre>
 
 </details><br>
-장바구니 분석을 하기 위해 필요한 데이터셋을 만들기 위한 쿼리를 입력하고 rdf1 이름으로 데이터프레임을 만들겠습니다.<br>
+장바구니 분석을 하기 위해 필요한 데이터셋을 만들기 위한 쿼리를 입력하고 CSV파일로 내려받기 합니다.<br>
 <br>
 <h3>2) 장바구니 분석하기</h3>
-<img src="https://user-images.githubusercontent.com/57983744/204942663-37b81379-9a2f-4172-ad1b-21f46faef1f6.png"><br>
+<img src="https://user-images.githubusercontent.com/57983744/208565471-812487e3-7995-4b7a-b52c-79e447e1ff68.png"><br>
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
 <pre>
 library(arules)
-rdf1$CUST_ID<-NULL
-rdf1$AUTOSEQ<-NULL
-dat<-as.data.frame(sapply(rdf1,as.logical))
+dat<-read.csv("/dataqueryserver/Directories/unload/hjjung/myfile.csv")
+dat$CUST_ID<-NULL
+dat$AUTOSEQ<-NULL
+dat<-as.data.frame(sapply(dat,as.logical))
 dat<-as(dat,"transactions")
 rule<-apriori(dat,control=list(verbos=F),parameter=list(support  0.05, confidence = 0.5, minlen=2))
 rule<-sort(rule,by='lift')
@@ -102,7 +103,7 @@ result<-inspect(rule)
 </pre>
 
 </details><br>
-rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf1시트에 출력합니다.
+내려받은 데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf1시트에 출력합니다.
 데이터셋을 logical형태로 변환하고 apriori 라이브러리를 이용해 지지도가 0.05, 신뢰도가 0.5 이상인 항목들을 향상도 순으로 출력하는 R코드를 입력하였습니다.
 <br><br>
 <img src="https://user-images.githubusercontent.com/57983744/204942665-484aff6b-675d-4028-b276-96f54371270b.png">
@@ -115,40 +116,43 @@ rdf1데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf
 <br><br>
 <h3>3) 대시보드 구성하기</h3>
 <br>
-<img src="https://user-images.githubusercontent.com/57983744/204942668-cdc203ff-4168-4d81-b076-685c1c848707.png">
+<img src="https://user-images.githubusercontent.com/57983744/208567812-f1e5cf5f-1ef3-4897-8e8e-b66dc9d81989.png">
 <br>
 앞에서 pivotmaster 시트에 구해놓은 히트맵 데이터와 장바구니 분석 결과를 활용하여 연관분석 대시보드(Dashboard2)를 구성합니다.<br>
 좌측 상단에는 많이 팔린 10개의 품목을 순서대로 보여주는 표, 우측 상단에는 한 고객이 함께 구매한 옷의 종류에 대한 히트맵, <br>하단에는 장바구니분석의 결과인 지지도, 신뢰도, 향상도 및 그에 따른 추천 마케팅을 표시하였습니다.
 <br><br>
-<img src="https://user-images.githubusercontent.com/57983744/204942670-bfb991b7-c543-4711-b884-4e78e73c8615.png">
+<img src="https://user-images.githubusercontent.com/57983744/208567995-4c03849c-e345-4089-85a6-316c2ac11c38.png">
 <br>
 장바구니 분석 또한 사용자가 원하는 기준으로 분석 할 수 있게끔 변수를 입력할 수 있는 곳이 필요합니다.<br>대시보드 좌측에 기준이 되는 지지도와 신뢰도를 입력할 수 있는 곳을 만들어주겠습니다. 
 <br><br>
-<img src="https://user-images.githubusercontent.com/57983744/204942673-f30b064d-4dd8-4879-8d27-8aed26f5715d.png">
+<img src="https://user-images.githubusercontent.com/57983744/208581630-d2ca07ae-5057-4eae-8a42-71458aa0feb0.png">
 <br>
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
 <pre>
 library(arules)
-rdf1$CUST_ID<-NULL
-rdf1$AUTOSEQ<-NULL
-dat<-as.data.frame(sapply(rdf1,as.logical))
+dat<-read.csv("/dataqueryserver/Directories/unload/hjjung/myfile.csv")
+dat$CUST_ID<-NULL
+dat$AUTOSEQ<-NULL
+dat<-as.data.frame(sapply(dat,as.logical))
 dat<-as(dat,"transactions")
 rule<-apriori(dat,control=list(verbos=F),parameter=list(support = [[##Dashboard2!C27##]], confidence = [[##Dashboard2!C29##]],minlen=2))
 rule<-sort(rule,by='lift')
+if (length(rule)<=5){
 result<-inspect(rule)
+} else{
+result<-inspect(rule[1:5])
+}
 </pre>
 
 </details><br>
 
-해당 입력값을 반영할 수 있도록 R코드를 수정합니다.<br><br>
-<img src="https://user-images.githubusercontent.com/57983744/204942675-9163b5a4-4418-4a10-b267-3f5796c1093b.png">
+해당 입력값을 반영하고 최대 5개까지만 결과를 나타낼 수 있도록 R코드를 수정합니다.<br><br>
+<img src="https://user-images.githubusercontent.com/57983744/208581798-966fc815-d030-4c43-8385-d18b137849e0.png">
 <br>
 기준 지지도를 0.05에서 0.03로 조금 낮춰 5개의 항목이 나타나게 대시보드가 변경되었습니다.
 <br><br>
-<img src="https://user-images.githubusercontent.com/57983744/204942678-a0bb5f4c-1fb6-4d17-b7fc-2e0e2ffe3407.png">
-<br>
-이전의 대시보드로 이동할 수 있는 화살표 버튼을 만들고 모든 프로젝트를 실행 할 수 있는 버튼을 만들어 매출대시보드와 연관분석 대시보드를 완성하였습니다.
+
 <br><br><br>
 <a href="/XLIG/2.사용자매뉴얼/3.데이터 분석 해보기/2.대시보드 살펴보기/">(이전) 대시보드 살펴보기</a>

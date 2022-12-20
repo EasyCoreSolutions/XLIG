@@ -11,7 +11,7 @@
 <h3>1) 데이터 가져오기</h3>
 <h5>(1) 쿼리 작성</h5>
 <div align=center>
-<img src="https://user-images.githubusercontent.com/57983744/204941620-8bcccaea-509f-43cc-b8f4-b259e72b4557.png"></div>
+<img src="https://user-images.githubusercontent.com/57983744/208561092-e0802927-b9cd-4f23-a3d3-4c787d034784.png"></div>
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
@@ -34,14 +34,14 @@ select * from sample
 피벗테이블을 선택하여 [삽입]-[피벗차트] 에서 데이터에 따라 적당한 차트를 선택하여 대시보드 시트에 차트를 삽입합니다.
 <h5>(2) 대시보드 구성하기</h5>
 <div align=center>
-<img src="https://user-images.githubusercontent.com/57983744/204941730-4e28feb4-38cb-4562-9c50-6f0b5e2d5db9.png"></div>
+<img src="https://user-images.githubusercontent.com/57983744/208562562-95be5121-3a55-4037-8973-51168453abc0.png"></div>
 대시보드의 틀을 만들고 삽입한 차트들을 보기좋게 수정한 후 위치를 배치하여 대시보드를 구성합니다.
 <h3>3) 사이드바 만들기</h3>
 &nbsp;하나의 대시보드에서 다양한 관점의 데이터를 보기 위해 데이터의 필터가 필요합니다.<br>앞서 설명했던 show_popup 매크로를 이용하여 데이터 필터 버튼을 만들겠습니다.
 <a href="/XLIG/2.사용자매뉴얼/2.매크로 기능/1.SHOW_POPUP/">매크로 사용법 보기</a>
 <h5>(1) 팝업선택시트 만들기</h5>
 <div align=center>
-<img src="https://user-images.githubusercontent.com/57983744/203703963-58d46055-8905-4d26-a43f-53b617dfdb88.png"></div>
+<img src="https://user-images.githubusercontent.com/57983744/208562008-9c179a5e-2cfe-4828-9ae1-666e4855ecab.png"></div>
 <details>
 <summary> Sample 코드 접기 / 펼치기 </summary>
 
@@ -62,7 +62,7 @@ GRADE  - select GRADE from sample group by GRADE
 &nbsp;[삽입]->[도형] 에서 버튼에 적합한 도형을 선택하여 삽입하고 [우클릭]->[매크로지정] 을 통해 show_popup 매크로를 선택한 뒤 대체 텍스트를 입력해줍니다.
 range에는 commcode 시트에 불러왔던 데이터의 범위를 지정하여주고 targetcell 에는 pivotmaster 시트의 빈 공간을 지정하여 줍니다. 다른 값들도 데이터에 따라 적절하게 설정해준 후 버튼을 대시보드에 배치하여줍니다.
 <div align=center>
-<img src="https://user-images.githubusercontent.com/57983744/204941734-ef49a6a7-426e-4b51-a36e-b742b15071e6.png"></div>
+<img src="https://user-images.githubusercontent.com/57983744/208562445-712542ac-a5bb-428d-8a35-a351eb99f634.png"></div>
 <h5>(3) 쿼리 수정</h5>
 <div align=center>
 <img src="https://user-images.githubusercontent.com/57983744/204941735-90c14eef-0e40-4f5d-9ee6-b406cd6da0ba.png"></div>
@@ -85,7 +85,7 @@ where 1=1
 <img src="https://user-images.githubusercontent.com/57983744/203720623-8734d125-ff07-4541-b5f9-3ecea08d6f1a.png"><br>
 GRADE버튼을 클릭하여 휴면등급을 선택에서 제외하고 프로젝트를 실행한다면<br><br>
 <div align=center>
-<img src="https://user-images.githubusercontent.com/57983744/204941739-fbb4b7d9-ead8-4f29-a07d-7790d113a1fe.png"></div>
+<img src="https://user-images.githubusercontent.com/57983744/208562236-ef64b331-c133-4eae-9b95-634d1966f8dd.png"></div>
 대시보드도 휴면상태의 고객이 제외된 대시보드로 변경된 것을 볼 수 있습니다.
 <br><br><br>
 <a href="/XLIG/2.사용자매뉴얼/3.데이터 분석 해보기/2.대시보드 살펴보기/">(다음) 대시보드 살펴보기</a>

@@ -8,7 +8,7 @@
 
 대시보드를 살펴보겠습니다.<br><br>
 
-<img src="https://user-images.githubusercontent.com/57983744/204942387-b2719d5b-fe0d-4387-baf4-2d1d9c13d832.png"><br>
+<img src="https://user-images.githubusercontent.com/57983744/208563340-346fece5-180a-41c5-b118-25767f01079c.png"><br>
 
 몇가지 눈에 띄는 점을 본다면,<br>
 - 2월에서 3월사이에 고객수가 폭발적으로 증가했습니다.<br>
@@ -20,9 +20,9 @@
 <h3>월별로 대시보드 보기</h3>
 &nbsp;대시보드의 특이점에 따라 먼저 2월의 대시보드와 3월의 대시보드를 비교해보겠습니다.
 <h5>1-2월 대시보드</h5>
-<img src="https://user-images.githubusercontent.com/57983744/204942389-bb5fa3a1-eeb8-4004-b025-c6bc60337d7a.png">
+<img src="https://user-images.githubusercontent.com/57983744/208563343-bd186fdf-b384-469f-a171-a9296b37e59e.png">
 <h5>3-4월 대시보드</h5>
-<img src="https://user-images.githubusercontent.com/57983744/204942392-5fdf9392-40b6-458b-97a3-81d98f1810f9.png"><br>
+<img src="https://user-images.githubusercontent.com/57983744/208563346-5eafbff2-3fab-4108-9900-505a66dacfd9.png"><br>
 1-2월과 3-4월의 대시보드를 비교하여 본다면,<br>
 
 - 티셔츠, 점퍼의 고객수가 5천명 가량 크게 증가했습니다.<br>
