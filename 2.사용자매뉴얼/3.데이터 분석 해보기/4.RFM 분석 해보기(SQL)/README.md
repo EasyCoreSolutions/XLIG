@@ -130,7 +130,7 @@ select Z.R_Level       /* R 등급 */
 
 예시로 추가한 피벗들은 각각 RFM 등급 별 구매액, 구매수량, 구매고객수, 객단가를 집계한 값입니다. 이 피벗들을 이용해 대시보드가 위치할 시트에 차트를 생성합니다.<br>
 
-<img src = "https://user-images.githubusercontent.com/86198387/205841343-05014b0b-72ca-42b5-b881-ae75787d6b35.png"/><br>
+<img src = "https://user-images.githubusercontent.com/86198387/208598392-80d7927e-f2b7-4c07-ace4-37b6437c5857.png"/><br>
 
 적당한 형태의 차트를 생성하고, 지시선을 추가하는 등의 작업으로 기본적인 대시보드가 생성되었습니다. 이 차트와 데이터를 바탕으로 확인할 수 있는 결과는 다음과 같습니다.<br>
 
@@ -153,7 +153,7 @@ select Z.R_Level       /* R 등급 */
 
 <b> 코드 실행 → 탭 추가 </b> 기능을 이용해 조회 관점을 달리하는 다중 쿼리문을 적용합니다. 각각의 분석 관점에 따라 엑셀 시트에 고객군을 출력해 결과를 대시보드에 결합합니다.
 
-<img src = "https://user-images.githubusercontent.com/86198387/205842281-b952f073-9944-44e5-8840-250dedc0c8cd.png"/><br>
+<img src = "https://user-images.githubusercontent.com/86198387/208598159-e2291fb2-0c06-4790-a0db-ee6c35c19332.png"/><br>
 
 대시보드에 아래와 같은 집계 결과가 추가되었습니다.
 
