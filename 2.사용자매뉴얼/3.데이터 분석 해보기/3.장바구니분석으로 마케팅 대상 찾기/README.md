@@ -13,9 +13,6 @@
 많이 팔린 10개의 옷의 종류는 기존의 데이터에서 구할 수 있기때문에 히트맵에 필요한 쿼리만 새로 작성하여 pivotmaster시트에 가져오도록 하겠습니다.
 <img src="https://user-images.githubusercontent.com/57983744/204942655-42309db2-3782-4dc8-a2a4-61d3d2820d31.png">
 <br>
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
-
 <pre>
   SELECT ITEM
       , COUNT(DISTINCT CASE WHEN CUST_ID IN (SELECT CUST_ID FROM crm_mart_hj.sample WHERE ITEM = 'ACC' GROUP BY CUST_ID) THEN CUST_ID ELSE NULL END) AS ACC
@@ -43,16 +40,13 @@
  [and SALE_DT in ($$pivotmaster!F1$$)]
   GROUP BY ITEM
 </pre>
-
-</details><br>
+<br>
 새로운 탭에 히트맵 데이터를 가져오기 위한 쿼리를 작성하고 
 <img src="https://user-images.githubusercontent.com/57983744/204942658-122d1cbf-eb1c-4edc-b34d-66d0b59e4a59.png">
 히트맵 데이터를 pivotmaster 시트에 가져옵니다.
 <h5>(2) R데이터프레임 만들기</h5>
 
 <img src="https://user-images.githubusercontent.com/57983744/208564778-83f2ea39-7d01-4750-85ce-22867c25d816.png"><br>
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
 
 <pre>
   SELECT CUST_ID
@@ -81,14 +75,11 @@ WHERE 1=1
  [and SALE_DT in ($$pivotmaster!F1$$)]
  GROUP BY CUST_ID
 </pre>
-
-</details><br>
+<br>
 장바구니 분석을 하기 위해 필요한 데이터셋을 만들기 위한 쿼리를 입력하고 CSV파일로 내려받기 합니다.<br>
 <br>
 <h3>2) 장바구니 분석하기</h3>
 <img src="https://user-images.githubusercontent.com/57983744/208565471-812487e3-7995-4b7a-b52c-79e447e1ff68.png"><br>
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
 
 <pre>
 library(arules)
@@ -101,8 +92,7 @@ rule<-apriori(dat,control=list(verbos=F),parameter=list(support  0.05, confidenc
 rule<-sort(rule,by='lift')
 result<-inspect(rule)
 </pre>
-
-</details><br>
+<br>
 내려받은 데이터셋으로 장바구니 분석을 하는 R코드를 입력하여 rdf1시트에 출력합니다.
 데이터셋을 logical형태로 변환하고 apriori 라이브러리를 이용해 지지도가 0.05, 신뢰도가 0.5 이상인 항목들을 향상도 순으로 출력하는 R코드를 입력하였습니다.
 <br><br>
@@ -127,9 +117,6 @@ result<-inspect(rule)
 <br><br>
 <img src="https://user-images.githubusercontent.com/57983744/208581630-d2ca07ae-5057-4eae-8a42-71458aa0feb0.png">
 <br>
-<details>
-<summary> Sample 코드 접기 / 펼치기 </summary>
-
 <pre>
 library(arules)
 dat<-read.csv("/dataqueryserver/Directories/unload/hjjung/myfile.csv")
@@ -145,8 +132,7 @@ result<-inspect(rule)
 result<-inspect(rule[1:5])
 }
 </pre>
-
-</details><br>
+<br>
 
 해당 입력값을 반영하고 최대 5개까지만 결과를 나타낼 수 있도록 R코드를 수정합니다.<br><br>
 <img src="https://user-images.githubusercontent.com/57983744/208581798-966fc815-d030-4c43-8385-d18b137849e0.png">
